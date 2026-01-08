@@ -1,0 +1,47 @@
+.service-nav-wrapper {
+  position: relative;
+  padding-block: 4rem;
+}
+
+.service-nav-heading {
+  position: relative;
+  top: auto;
+  padding: 2rem 0;
+  font-size: 6rem;
+  z-index: 10;
+  pointer-events: none;
+  will-change: opacity, transform;
+  transform: translateZ(0); // GPU acceleration
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+h2.service-nav-heading-text {
+  flex: 0 0 auto;
+  width: 10ch;
+  font-size: inherit;
+  margin: 0;
+}
+
+.service-nav-heading-text .word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.service-nav-heading-text .word-inner {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.service-nav-heading-arrow {
+  flex: 0 0 auto;
+  font-size: 6rem;
+  line-height: 1;
+  will-change: transform;
+  transform: translateZ(0); // GPU acceleration
+}

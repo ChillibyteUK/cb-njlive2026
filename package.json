@@ -20,7 +20,6 @@
         "dist-build": "node src/build/dist-build.js",
         "dist-clean": "node src/build/dist-clean.js",
         "generate-theme-json": "node generate-theme-json.js",
-        "postinstall": "mv node_modules/understrap/phpcs.xml.dist node_modules/understrap/phpcs.xml.dist.bak || true",
         "format": "npm-run-all format:*",
         "format:js": "prettier --write src/js/**/*.js",
         "format:scss": "prettier --write src/sass/**/*.scss",

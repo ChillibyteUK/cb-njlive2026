@@ -22,6 +22,12 @@
           "origin": "theme"
         },
         {
+          "name": "dark",
+          "slug": "dark",
+          "color": "hsl(194 44% 10%)",
+          "origin": "theme"
+        },
+        {
           "name": "mint",
           "slug": "mint",
           "color": "hsl(170 100% 42%)",

@@ -7,6 +7,8 @@
   --col-white: hsl(var(--col-white-hsl));
   --col-black-hsl: 0 0% 0%;
   --col-black: hsl(var(--col-black-hsl));
+  --col-dark-hsl: 194 44% 10%;
+  --col-dark: hsl(var(--col-dark-hsl));
   --col-mint-hsl: 170 100% 42%;
   --col-mint: hsl(var(--col-mint-hsl));
   --col-light-grey-hsl: 0 0% 91%;
@@ -69,6 +71,8 @@
   --col-white: hsl(var(--col-white-hsl));
   --col-black-hsl: 0 0% 0%;
   --col-black: hsl(var(--col-black-hsl));
+  --col-dark-hsl: 194 44% 10%;
+  --col-dark: hsl(var(--col-dark-hsl));
   --col-mint-hsl: 170 100% 42%;
   --col-mint: hsl(var(--col-mint-hsl));
   --col-light-grey-hsl: 0 0% 91%;

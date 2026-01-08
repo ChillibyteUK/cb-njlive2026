@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
 					<h1 class="type-writer"><?= esc_html( get_field( 'title' ) ); ?></h1>
 				</div>
 				<div class="col-lg-4 d-flex flex-column justify-content-start align-items-center gap-2">
-					spinny thingy
+					<canvas id="dotlottie-canvas" style="width: 300px; height: 300px;"></canvas>
 				</div>
 			</div>
 		</div>
@@ -34,6 +34,16 @@ add_action(
 	'wp_footer',
 	function () {
 		?>
+	<script type="module">
+			import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+
+			new DotLottie({
+				autoplay: true,
+				loop: true,
+				canvas: document.getElementById("dotlottie-canvas"),
+				src: "<?= get_stylesheet_directory_uri(); ?>/js/DiamondJson.json",
+			});
+		</script>
 		<script>
 			(function() {
 				function gsapWordSlideUp(element, opts = {}) {

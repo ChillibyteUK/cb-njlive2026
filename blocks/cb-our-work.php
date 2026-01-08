@@ -32,15 +32,69 @@ defined( 'ABSPATH' ) || exit;
 				<div class="col-md-6">
 					<div class="our-work-card">
 						<div class="our-work-card__header">
-							
+							<div class="our-work-card__header-title">
+								<div class="our-work-card__header-arrow">
+									<svg width="26" height="21" viewBox="0 0 198 194" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path class="cls-1" d="M97.11,4.24L189.51,96.63 97.11,189.03M189.51,96.63H0.51" stroke="currentcolor" stroke-width="12" stroke-miterlimit="10"/>
+									</svg>
+								</div>
+								Sega Gamescom Consumer Booth
+							</div>
+							<div class="our-work-card__header-year">
+								2025
+							</div>
+						</div>
+						<div class="our-work-card__body">
+							<div class="our-work-card__body-front">
+								video loop
+							</div>
+							<div class="our-work-card__body-back">
+								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum fuga porro aut rem a, odit, cupiditate amet necessitatibus.
+							</div>
 						</div>
 					</div>
-					CASE STUDY HERE
 				</div>
 				<div class="col-md-6">
-					CASE STUDY HERE
+					<div class="our-work-card">
+						<div class="our-work-card__header">
+							<div class="our-work-card__header-title">
+								<div class="our-work-card__header-arrow">
+									<svg width="26" height="21" viewBox="0 0 198 194" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path class="cls-1" d="M97.11,4.24L189.51,96.63 97.11,189.03M189.51,96.63H0.51" stroke="currentcolor" stroke-width="12" stroke-miterlimit="10"/>
+									</svg>
+								</div>
+								Sega Gamescom Consumer Booth
+							</div>
+							<div class="our-work-card__header-year">
+								2025
+							</div>
+						</div>
+						<div class="our-work-card__body">
+							<div class="our-work-card__body-front">
+								video loop
+							</div>
+							<div class="our-work-card__body-back">
+								<span>
+									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum fuga porro aut rem a, odit, cupiditate amet necessitatibus.
+								</span>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
+		</div>
+		<div class="pt-5 text-center">
+			<a href="#" target="" class="fancy-button">
+				<span class="fancy-button__icon fancy-button__icon--left">
+					<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>
+				</span>
+				<span class="fancy-button__label" style="">
+					View all work
+				</span>
+				<span class="fancy-button__icon fancy-button__icon--right">
+					<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>
+				</span>
+			</a>
 		</div>
 	</div>
 </section>

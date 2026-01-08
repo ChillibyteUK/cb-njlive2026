@@ -62,22 +62,18 @@ add_action(
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
-// Integrate Lenis with GSAP ScrollTrigger
+// Bridge Lenis (if present) so ScrollTrigger tracks smooth scrolling
 if (window.lenis) {
 	window.lenis.on('scroll', ScrollTrigger.update);
-	
 	gsap.ticker.add((time) => {
 		window.lenis.raf(time * 1000);
 	});
-	
 	gsap.ticker.lagSmoothing(0);
 }
 
 function initServicesPanels() {
-	// Kill existing triggers to prevent conflicts on re-init
 	ScrollTrigger.getAll().forEach(trigger => {
-		if (trigger.vars.trigger?.closest?.('.services-wrapper') || 
-		    trigger.vars.trigger?.classList?.contains('service-card-wrapper')) {
+		if (trigger.vars.trigger?.closest?.('.services-wrapper')) {
 			trigger.kill();
 		}
 	});
@@ -87,10 +83,7 @@ function initServicesPanels() {
 	const headingText = heading?.querySelector(".services-heading-text.word-slide-effect");
 	const cards = gsap.utils.toArray(".service-card-wrapper", wrapper);
 
-	if (!cards.length || !wrapper || !heading) return;
-
-	// Ensure proper initial state for heading
-	gsap.set(heading, { opacity: 1, rotation: 0 });
+	if (!wrapper || !heading) return;
 
 	// Word animation setup
 	let wordInners = [];
@@ -138,109 +131,79 @@ function initServicesPanels() {
 		});
 	}
 
-	// Heading fade and arrow rotation - separate animations
-	if (heading) {
-		const arrow = heading.querySelector('.services-heading-arrow');
-		const firstCard = cards[0];
-		
-		// Pin the heading at the top throughout the entire section
+	// Arrow rotation animation
+	const arrow = heading?.querySelector('.services-heading-arrow');
+	if (arrow) {
 		ScrollTrigger.create({
 			trigger: wrapper,
-			start: 'top top',
-			end: 'bottom top',
-			pin: heading,
-			pinSpacing: false
+			start: 'top 80%',
+			onUpdate: (self) => {
+				const clamped = gsap.utils.clamp(0, 0.2, self.progress);
+				gsap.set(arrow, { rotation: gsap.utils.mapRange(0, 0.2, 0, -90, clamped) });
+			}
 		});
-		
-		if (firstCard && arrow) {
-			// Stage 1: Arrow rotates as card approaches the stuck heading
-			ScrollTrigger.create({
-				trigger: firstCard,
-				start: 'top bottom', // Start when card enters viewport
-				end: 'top 150px',    // Complete as card approaches stuck heading
-				onUpdate: (self) => {
-					const progress = gsap.utils.clamp(0, 1, self.progress);
-					gsap.set(arrow, { rotation: gsap.utils.mapRange(0, 1, 0, -90, progress) });
-				}
-			});
-			
-			// Stage 2: Heading fades only when card physically reaches it
-			ScrollTrigger.create({
-				trigger: firstCard,
-				start: 'top 150px', // Start fade when card hits the stuck heading
-				end: 'top 80px',    // Complete fade at pin position
-				onUpdate: (self) => {
-					const progress = gsap.utils.clamp(0, 1, self.progress);
-					gsap.set(heading, { opacity: gsap.utils.mapRange(0, 1, 1, 0, progress) });
-				}
-			});
-		}
 	}
 
-	// Each card has its own pin animation
+	// Fade heading out as first card overlaps; restore on reverse
+	const firstCard = cards[0];
+	if (firstCard && heading) {
+		ScrollTrigger.create({
+			trigger: firstCard,
+			start: 'top 100px',
+			end: 'top 40px',
+			scrub: true,
+			onUpdate: (self) => {
+				const p = gsap.utils.clamp(0, 1, self.progress);
+				gsap.set(heading, { opacity: gsap.utils.mapRange(0, 1, 1, 0, p) });
+			},
+			// Reverse scroll fades smoothly via scrub; no instant setters
+		});
+	}
+
+	// Vertical carousel: pin each card within the services wrapper
 	cards.forEach((card, i) => {
 		const cardElement = card.querySelector('.service-card');
 		if (!cardElement) return;
-		
-		// Set initial state
+
+		const nextCard = cards[i + 1] || null;
+
+		// Initial state per card
 		gsap.set(cardElement, { scale: 1, opacity: 1, force3D: true });
-		
-		// Fixed duration for consistent behavior
-		const pinDuration = 800;
-		
-		const tl = gsap.timeline({
-			paused: true,
-			smoothChildTiming: true
-		});
-		
+
+		// Fade/scale out while the next card scrolls in
+		const tl = gsap.timeline({ paused: true, smoothChildTiming: true });
 		tl.to(cardElement, { duration: 0.5 }, 0)
-			.to(cardElement, { 
-				scale: 0.85, 
-				opacity: 0, 
+			.to(cardElement, {
+				scale: 0.85,
+				opacity: 0,
 				duration: 0.5,
-				ease: "none",
+				ease: 'none',
 				force3D: true
-		  	},
-			0.5);
-		
+			}, 0.5);
+
 		ScrollTrigger.create({
 			trigger: card,
-			start: "top 80px",
-			end: () => `+=${pinDuration}`,
+			start: 'top 80px',
+			endTrigger: nextCard || card,
+			end: nextCard ? 'top 80px' : '+=800',
 			pin: card,
 			pinSpacing: false,
-			anticipatePin: 1,
-			scrub: 0.5,
+			scrub: true,
 			animation: tl,
-			refreshPriority: -i, // Critical: ensures proper stacking order
+			refreshPriority: -i,
 			onRefreshInit: (self) => {
 				if (self.pin) {
-					gsap.set(self.pin, { clearProps: "transform" });
+					gsap.set(self.pin, { clearProps: 'transform' });
 				}
 			},
 			invalidateOnRefresh: true
 		});
 	});
 
-	// Refresh ScrollTrigger to ensure all calculations are correct
 	ScrollTrigger.refresh();
 }
 
-// Initialize after DOM is fully ready
-if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', initServicesPanels);
-} else {
-	initServicesPanels();
-}
-
-// Reinitialize on window resize to handle responsive changes
-let resizeTimeout;
-window.addEventListener('resize', () => {
-	clearTimeout(resizeTimeout);
-	resizeTimeout = setTimeout(() => {
-		initServicesPanels();
-	}, 250);
-});
+window.addEventListener("load", initServicesPanels);
 </script>
 		<?php
 	},

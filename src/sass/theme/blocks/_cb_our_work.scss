@@ -1,24 +1,27 @@
 .our-work {
-    background-color: var(--col-black);
+    background-color: var(--col-dark);
     color: var(--col-white);
     isolation: isolate;
     transform: none !important;
     contain: layout style paint;
     
+    position: relative;
+    z-index: 999;
+
     &::before,
     &::after {
       display: none !important;
     }
     
-    * {
-      background-color: transparent !important;
-    }
+    // * {
+    //   background-color: transparent !important;
+    // }
 }
 
 .work-wrapper {
   position: relative;
-  padding-bottom: 30vh;
   transform: none !important;
+  padding-bottom: 3rem;
 }
 
 .work-heading {
@@ -74,8 +77,10 @@ h2.work-heading-text {
   transform: none;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  
+  border-radius: 2rem;
+
   iframe {
+    overflow: hidden;
     box-shadow: none;
     outline: none;
     border: none;
@@ -95,11 +100,110 @@ h2.work-heading-text {
   transform: none !important;
 }
 
-// Hide any parallax mirror elements
-.parallax-mirror {
-  display: none !important;
+
+.our-work-card {
+  background-color: var(--col-black);
+  .our-work-card__header-arrow {
+    transition: transform 0.3s ease-in-out;
+  }
+  &:hover {
+    .our-work-card__header-arrow {
+      transform: rotate(45deg);
+    }
+    .our-work-card__body-back {
+      opacity: 1;
+    }
+  }
+  border: 1px solid var(--col-white);
+  border-radius: 1rem;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+  }
+  &__header-title {
+   display: flex;
+   column-gap: 0.5rem;
+  }
+  &__body {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  &__body-front {
+    background-color: steelblue;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__body-back {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease-in-out;
+    background-color: hsl( var(--col-black-hsl) / 0.9 );
+    opacity: 0;
+    display: grid;
+    place-content: center;
+    span {
+      max-width: 40ch;
+    }
+  }
+
 }
 
-.our-work .parallax-mirror {
-  display: none !important;
+.fancy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  contain: layout;
+  span {
+    border: 2px solid var(--col-white);
+    color: var(--col-white);
+  }
+  &__label {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 100vw;
+    padding-inline: 1rem;
+    font-size: var(--fs-200);
+    font-weight: var(--fw-400);
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    border-radius: 100%;
+    overflow: hidden;
+    transition: scale 0.3s ease-in-out, width 0.3s ease-in-out;
+    width: 2.5rem;
+    flex-shrink: 0;
+  }
+  &__icon--left {
+    scale: 0;
+    width: 0;
+  }
+  &__icon--right {
+    scale: 1;
+  }
+
+  &:hover {
+    text-decoration: none;
+    .fancy-button__icon--left {
+      scale: 1;
+      width: 2.5rem;
+    }
+    .fancy-button__icon--right {
+      scale: 0;
+      width: 0;
+    }
+  }
 }

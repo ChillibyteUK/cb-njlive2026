@@ -18,7 +18,7 @@
   z-index: 10;
   pointer-events: none;
   will-change: opacity, transform;
-  transform: translateZ(0); // GPU acceleration
+  transform: translateZ(0);
   
   .container {
     display: flex;
@@ -61,7 +61,8 @@ h2.services-heading-text {
   flex-direction: column;
   justify-content: center;
   will-change: transform, opacity;
-  transform: translateZ(0); // GPU acceleration
+  transform: translateZ(0);
+  z-index: 20;
 }
 
 /* Card sizing and alignment */
