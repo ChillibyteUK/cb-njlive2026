@@ -1,0 +1,118 @@
+{
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "1140px",
+      "wideSize": "1320px"
+    },
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        {
+          "name": "white",
+          "slug": "white",
+          "color": "hsl(0 0% 100%)",
+          "origin": "theme"
+        },
+        {
+          "name": "black",
+          "slug": "black",
+          "color": "hsl(0 0% 0%)",
+          "origin": "theme"
+        },
+        {
+          "name": "mint",
+          "slug": "mint",
+          "color": "hsl(170 100% 42%)",
+          "origin": "theme"
+        },
+        {
+          "name": "light-grey",
+          "slug": "light-grey",
+          "color": "hsl(0 0% 91%)",
+          "origin": "theme"
+        },
+        {
+          "name": "slate",
+          "slug": "slate",
+          "color": "hsl(194 44% 10%)",
+          "origin": "theme"
+        },
+        {
+          "name": "blue",
+          "slug": "blue",
+          "color": "hsl(211 100% 42%)",
+          "origin": "theme"
+        },
+        {
+          "name": "violet",
+          "slug": "violet",
+          "color": "hsl(290 80% 75%)",
+          "origin": "theme"
+        },
+        {
+          "name": "yellow",
+          "slug": "yellow",
+          "color": "hsl(43 100% 50%)",
+          "origin": "theme"
+        },
+        {
+          "name": "orange",
+          "slug": "orange",
+          "color": "hsl(15 93% 53%)",
+          "origin": "theme"
+        }
+      ]
+    },
+    "typography": {
+      "fontSizes": [
+        {
+          "name": "100",
+          "slug": "100",
+          "size": "0.778rem"
+        },
+        {
+          "name": "200",
+          "slug": "200",
+          "size": "0.889rem"
+        },
+        {
+          "name": "300",
+          "slug": "300",
+          "size": "1rem"
+        },
+        {
+          "name": "400",
+          "slug": "400",
+          "size": "clamp(1.04rem, calc(0.96rem + 0.40vw), 1.222rem)"
+        },
+        {
+          "name": "500",
+          "slug": "500",
+          "size": "clamp(1.25rem, calc(1.02rem + 0.85vw), 1.556rem)"
+        },
+        {
+          "name": "600",
+          "slug": "600",
+          "size": "clamp(1.46rem, calc(1.12rem + 1.45vw), 1.944rem)"
+        },
+        {
+          "name": "700",
+          "slug": "700",
+          "size": "clamp(1.71rem, calc(1.18rem + 2.20vw), 2.444rem)"
+        },
+        {
+          "name": "800",
+          "slug": "800",
+          "size": "clamp(1.99rem, calc(1.25rem + 3.60vw), 3.056rem)"
+        },
+        {
+          "name": "900",
+          "slug": "900",
+          "size": "clamp(2.30rem, calc(1.30rem + 5.50vw), 3.833rem)"
+        }
+      ]
+    }
+  }
+}

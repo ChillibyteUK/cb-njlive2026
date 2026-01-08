@@ -1,0 +1,45 @@
+.home-hero {
+    position: relative;
+    min-height: calc(100svh - var(--h-top));
+    overflow: hidden;
+    isolation: isolate;
+
+    .underlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-image: url(../img/pattern.svg);
+        z-index: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .content {
+        z-index: 1;
+        margin-inline: auto;
+    }
+
+    h1 {
+        font-size: var(--fs-800);
+        color: var(--col-slate);
+        line-height: var(--lh-tight);
+        letter-spacing: 0;
+        min-height: 1.2em; // Reserve space to prevent layout shift
+    }
+
+    h1.type-writer {
+        display: block;
+    }
+
+    .word-mask {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: bottom;
+    }
+
+    .word-inner {
+        display: inline-block;
+        white-space: nowrap;
+    }
+}

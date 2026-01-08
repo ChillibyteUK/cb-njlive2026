@@ -1,0 +1,26 @@
+@media (width > 641px) {
+    .gfmc-container {
+        column-gap: 2rem !important;
+    }
+}
+
+.gform_footer {
+    justify-content: flex-end;
+}
+
+.gform_button {
+    @extend .btn;
+    @extend .btn-primary;
+}
+
+.gform_wrapper {
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    textarea {
+        border-style: solid;
+        border-radius: 0.25rem;
+        border-color: var(--col-blue-200);
+        border-width: 2px;
+    }
+}

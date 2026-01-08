@@ -1,0 +1,150 @@
+:root {
+  font-variant-ligatures: none;
+}
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+
+/* Base */
+html {
+  font-size: 18px;
+}
+
+/* 16px */
+
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--col-black);
+}
+
+h1,
+.h1 {
+  font-size: var(--fs-900);
+  font-weight: var(--fw-bold);
+}
+
+h2,
+.h2 {
+  font-size: var(--fs-700);
+  font-weight: var(--fw-bold);
+  margin-bottom: 1rem;
+}
+
+h3,
+.h3 {
+  font-size: var(--fs-500);
+  font-weight: var(--fw-bold);
+  margin-bottom: 0.75rem;
+}
+
+.has-dot {
+  &::after {
+    content: ".";
+    color: var(--col-andwis-400);
+  }
+}
+
+/* Links */
+a {
+  color: var(--col-blue-400);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--col-blue-300);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--col-blue-400);
+  outline-offset: 2px;
+}
+
+/* Media rhythm */
+p,
+ul,
+ol,
+blockquote,
+figure {
+  margin-block: 0.75em;
+}
+
+.w-constrained-md {
+  max-width: 72ch;
+  text-wrap: balance;
+}
+
+.fs-300 {
+  font-size: var(--fs-300);
+}
+
+.fs-400 {
+  font-size: var(--fs-400);
+}
+
+.fs-500 {
+  font-size: var(--fs-500);
+}
+
+.fs-600 {
+  font-size: var(--fs-600);
+}
+
+.fs-700 {
+  font-size: var(--fs-700);
+}
+
+.fs-800 {
+  font-size: var(--fs-800);
+}
+
+.fs-900 {
+  font-size: var(--fs-900);
+}
+
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+
+strong,
+b,
+.fw-semi {
+  font-weight: var(--fw-semi);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+
+.lh-tightest {
+  line-height: var(--lh-tightest);
+}
+.lh-tight {
+  line-height: var(--lh-tight);
+}
+.lh-snug {
+  line-height: var(--lh-snug);
+}
+.lh-normal {
+  line-height: var(--lh-normal);
+}
+
+// h1,
+// .h1 {
+//   margin-block: 0.6em 0.4em;
+// }
+// h2,
+// .h2 {
+//   margin-block: 1.2em 0.5em;
+// }
+// h3,
+// .h3 {
+//   margin-block: 1.2em 0.4em;
+// }

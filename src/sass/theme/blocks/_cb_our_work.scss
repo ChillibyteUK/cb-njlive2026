@@ -1,0 +1,105 @@
+.our-work {
+    background-color: var(--col-black);
+    color: var(--col-white);
+    isolation: isolate;
+    transform: none !important;
+    contain: layout style paint;
+    
+    &::before,
+    &::after {
+      display: none !important;
+    }
+    
+    * {
+      background-color: transparent !important;
+    }
+}
+
+.work-wrapper {
+  position: relative;
+  padding-bottom: 30vh;
+  transform: none !important;
+}
+
+.work-heading {
+  position: relative;
+  padding: 2rem 0;
+  font-size: 6rem;
+  z-index: 10;
+  pointer-events: none;
+  background-color: transparent;
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+h2.work-heading-text {
+  flex: 0 0 auto;
+  width: 6ch;
+  font-size: inherit;
+  margin: 0;
+}
+
+.work-heading-text .word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.work-heading-text .word-inner {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.work-heading-arrow {
+  flex: 0 0 auto;
+  font-size: 6rem;
+  line-height: 1;
+}
+
+// Remove the pseudo-element that creates the white block
+.our-work .ratio::before {
+  content: none;
+  display: none;
+}
+
+.our-work .ratio {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: transparent;
+  will-change: auto;
+  transform: none;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  
+  iframe {
+    box-shadow: none;
+    outline: none;
+    border: none;
+    background: transparent;
+    will-change: auto;
+    transform: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+// Ensure container doesn't create stacking issues
+.our-work .container {
+  position: static;
+  z-index: auto;
+  transform: none !important;
+}
+
+// Hide any parallax mirror elements
+.parallax-mirror {
+  display: none !important;
+}
+
+.our-work .parallax-mirror {
+  display: none !important;
+}

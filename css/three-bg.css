@@ -1,0 +1,24 @@
+:root{
+  --bg-palette-mint-blue: 168 100 50, 200 100 65, 0 0 100;
+  --bg-palette-violet:    292 90 70, 287 95 85, 0 0 100;
+  --bg-palette-warm:      44 100 60, 320 95 70, 0 0 100;
+  --bg-active: var(--bg-palette-mint-blue);
+}
+html[data-bg="mint-blue"]{ --bg-active: var(--bg-palette-mint-blue); }
+html[data-bg="violet"]   { --bg-active: var(--bg-palette-violet); }
+html[data-bg="warm"]     { --bg-active: var(--bg-palette-warm); }
+
+.three-bg-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.three-bg-canvas{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+/*# sourceMappingURL=three-bg.css.map */

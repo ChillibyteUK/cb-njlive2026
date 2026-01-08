@@ -1,0 +1,29 @@
+/* Base editor typography */
+.editor-styles-wrapper {
+  font-family: var(--ff-body);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-400);
+  line-height: var(--lh-normal);
+  color: var(--col-black);
+  background: var(--col-white);
+}
+
+/* Map heading appearance in editor */
+.editor-styles-wrapper h1 {
+  font-family: var(--ff-body);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-800);
+  line-height: var(--lh-tight);
+}
+.editor-styles-wrapper h2 {
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-700);
+  font-size: var(--fs-700);
+  line-height: var(--lh-tight);
+}
+.editor-styles-wrapper h3 {
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-600);
+  font-size: var(--fs-600);
+  line-height: var(--lh-snug);
+}

@@ -1,0 +1,114 @@
+@import "typography";
+@import "colours";
+@import "buttons";
+@import "header";
+@import "footer";
+@import "forms";
+@import "blocks/blocks";
+
+body {
+  background-color: var(--col-white);
+}
+
+// Adjust fixed header when admin bar is present
+.admin-bar header.fixed-top {
+  top: 32px; // Admin bar height
+}
+
+@media (min-width: 768px) {
+  .cols-lg-3 {
+    columns: 2;
+  }
+}
+
+@media (min-width: 992px) {
+  .cols-lg-2 {
+    columns: 2;
+  }
+
+  .cols-lg-3 {
+    columns: 3;
+  }
+}
+
+#breadcrumbs {
+  font-size: var(--text-sm);
+
+  a {
+    text-decoration: none;
+    font-weight: var(--fw-600);
+    color: var(--col-black);
+  }
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: calc(var(--h-top-desktop) * -1);
+  visibility: hidden;
+}
+
+.wp-block-group.is-layout-constrained {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+  @media (min-width: 1400px) {
+    max-width: 1320px;
+  }
+
+  & .container {
+    padding-inline: 0;
+  }
+
+  // Blob background groups need full width for the background
+  &[class*="is-style-blob-bg"] {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+.container .container {
+  padding-inline: 0;
+}
+
+main {
+  margin-top: var(--h-top-desktop);
+}
+
+
+.form-control {
+  border-radius: 0;
+}
+
+ul:not(.fa-ul) > li {
+  list-style: square;
+}
+
+.fa-ul > li {
+  margin-bottom: 0.5rem;
+  &  > a {
+    font-weight: var(--fw-semi);
+  }
+}
+
+.has-watermark {
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Layer_2' data-name='Layer 2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640.94 297.88'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %23fff; opacity: .05; %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpath class='cls-1' d='M516.2,0c-26.37,0-50.83,13.55-64.9,35.9l-71.48,114.02L344.64,0h-115.47c-26.37,0-50.9,13.55-64.9,35.9L0,297.88h124.74c26.37,0,50.9-13.55,64.9-35.9l54.71-86.87.13.59,14.8,63.06c8.15,34.59,38.99,59.05,74.57,59.05h77.99c26.37,0,50.9-13.55,64.9-35.9L640.94,0h-124.74ZM172.42,251.13h0c-10.26,16.37-28.28,26.37-47.67,26.37H36.76L181.49,46.69c6.51-10.46,16.24-18.28,27.42-22.62l29,123.36-65.43,103.7h-.07ZM325.5,276.71c-8.35-.85-19.66-6.9-19.66-6.9-13.15-7.56-23.08-20.19-26.7-35.71L228.9,20.32h99.49l60.5,257.18s-60.63-.33-63.39-.79M459.52,251.13c-10.26,16.37-28.28,26.37-47.67,26.37h-2.04l-23.28-98.97,82-131.84c10.26-16.37,28.28-26.37,47.67-26.37h88.05s-144.73,230.81-144.73,230.81Z'/%3E%3C/g%3E%3C/svg%3E");
+}

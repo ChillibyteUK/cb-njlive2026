@@ -1,0 +1,90 @@
+$col-primary: #1D0F44;
+$col-dark: #222222;
+$col-darkest: #4a4a4a;
+$col-light: #f2f2f2;
+
+:root {
+   /* =========================
+      COLOURS (HSL + computed)
+      ========================= */
+
+   --col-white-hsl: 0 0% 100%;
+   --col-white: hsl(var(--col-white-hsl));
+
+   --col-black-hsl: 0 0% 0%;
+   --col-black: hsl(var(--col-black-hsl));
+
+   --col-mint-hsl: 170 100% 42%;
+   --col-mint: hsl(var(--col-mint-hsl));
+
+   --col-light-grey-hsl: 0 0% 91%;
+   --col-light-grey: hsl(var(--col-light-grey-hsl));
+
+   --col-slate-hsl: 194 44% 10%;
+   --col-slate: hsl(var(--col-slate-hsl));
+
+   --col-blue-hsl: 211 100% 42%;
+   --col-blue: hsl(var(--col-blue-hsl));
+
+   --col-violet-hsl: 290 80% 75%;
+   --col-violet: hsl(var(--col-violet-hsl));
+
+   --col-yellow-hsl: 43 100% 50%;
+   --col-yellow: hsl(var(--col-yellow-hsl));
+
+   --col-orange-hsl: 15 93% 53%;
+   --col-orange: hsl(var(--col-orange-hsl));
+
+
+   /* =========================
+      TYPOGRAPHY (families/weights)
+      ========================= */
+   --ff-body:
+      "roc-grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+   --fw-medium: 500;
+   --fw-regular: 400;
+
+   --lh-tightest: 1;
+   --lh-tight: 1.1;
+   --lh-snug: 1.25;
+   --lh-normal: 1.5;
+
+   /* =========================
+      TYPOGRAPHY (responsive sizes)
+      ========================= */
+
+   --fs-100: 0.778rem;
+   /* 14px */
+   --fs-200: 0.889rem;
+   /* 16px */
+   --fs-300: 1rem;
+   /* 18px */
+
+   /* 22px → 85% min */
+   --fs-400: clamp(1.04rem, calc(0.96rem + 0.40vw), 1.222rem);
+
+   /* 28px → 80% min */
+   --fs-500: clamp(1.25rem, calc(1.02rem + 0.85vw), 1.556rem);
+
+   /* 35px → 75% min */
+   --fs-600: clamp(1.46rem, calc(1.12rem + 1.45vw), 1.944rem);
+
+   /* 44px → 70% min */
+   --fs-700: clamp(1.71rem, calc(1.18rem + 2.20vw), 2.444rem);
+
+   /* 55px → 65% min */
+   --fs-800: clamp(1.99rem, calc(1.25rem + 3.60vw), 3.056rem);
+
+   /* 69px → 60% min */
+   --fs-900: clamp(2.30rem, calc(1.30rem + 5.50vw), 3.833rem);
+
+   --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+   /* === Utilities === */
+   --transition: 250ms ease-out;
+
+   --h-top: 72px;
+   --h-top-desktop: 72px;
+}

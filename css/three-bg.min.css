@@ -1,0 +1,2 @@
+:root{--bg-palette-mint-blue:168 100 50,200 100 65,0 0 100;--bg-palette-violet:292 90 70,287 95 85,0 0 100;--bg-palette-warm:44 100 60,320 95 70,0 0 100;--bg-active:var(--bg-palette-mint-blue)}html[data-bg=mint-blue]{--bg-active:var(--bg-palette-mint-blue)}html[data-bg=violet]{--bg-active:var(--bg-palette-violet)}html[data-bg=warm]{--bg-active:var(--bg-palette-warm)}.three-bg-canvas{position:fixed;inset:0;pointer-events:none;z-index:0}body>:not(canvas):not(.our-work){position:relative;z-index:1}
+/*# sourceMappingURL=three-bg.min.css.map */
