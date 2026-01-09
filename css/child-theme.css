@@ -21810,6 +21810,61 @@ b,
   --btn-transition: var(--transition);
 }
 
+.fancy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  contain: layout;
+}
+.fancy-button span {
+  border: 2px solid var(--col-white);
+  color: var(--col-white);
+}
+.fancy-button__label {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 100vw;
+  padding-inline: 1rem;
+  font-size: var(--fs-200);
+  font-weight: var(--fw-400);
+}
+.fancy-button__icon {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  border-radius: 100%;
+  overflow: hidden;
+  transition: scale 0.3s ease-in-out, width 0.3s ease-in-out;
+  width: 2.5rem;
+  flex-shrink: 0;
+}
+.fancy-button__icon--left {
+  scale: 0;
+  width: 0;
+}
+.fancy-button__icon--right {
+  scale: 1;
+}
+.fancy-button:hover {
+  text-decoration: none;
+}
+.fancy-button:hover .fancy-button__icon--left {
+  scale: 1;
+  width: 2.5rem;
+}
+.fancy-button:hover .fancy-button__icon--right {
+  scale: 0;
+  width: 0;
+}
+
+.fancy-button--dark span {
+  border: 2px solid var(--col-black);
+  background: var(--col-black);
+  color: var(--col-white);
+}
+
 /* Base button */
 .btn, .gform_button {
   --_bg: var(--col-grey);
@@ -22389,55 +22444,6 @@ h2.work-heading-text, .work-heading-text.h2 {
 }
 .our-work-card__body-back span {
   max-width: 40ch;
-}
-
-.fancy-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.5rem;
-  contain: layout;
-}
-.fancy-button span {
-  border: 2px solid var(--col-white);
-  color: var(--col-white);
-}
-.fancy-button__label {
-  height: 2.5rem;
-  display: flex;
-  align-items: center;
-  border-radius: 100vw;
-  padding-inline: 1rem;
-  font-size: var(--fs-200);
-  font-weight: var(--fw-400);
-}
-.fancy-button__icon {
-  display: flex;
-  align-items: center;
-  height: 2.5rem;
-  border-radius: 100%;
-  overflow: hidden;
-  transition: scale 0.3s ease-in-out, width 0.3s ease-in-out;
-  width: 2.5rem;
-  flex-shrink: 0;
-}
-.fancy-button__icon--left {
-  scale: 0;
-  width: 0;
-}
-.fancy-button__icon--right {
-  scale: 1;
-}
-.fancy-button:hover {
-  text-decoration: none;
-}
-.fancy-button:hover .fancy-button__icon--left {
-  scale: 1;
-  width: 2.5rem;
-}
-.fancy-button:hover .fancy-button__icon--right {
-  scale: 0;
-  width: 0;
 }
 
 .accordion {

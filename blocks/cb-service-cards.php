@@ -35,9 +35,29 @@ defined( 'ABSPATH' ) || exit;
 				<div class="card service-card shadow-lg rounded-4">
 					<div class="card-body p-4">
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-6 service-card__text">
 								<h3 class="card-title h2 mb-3"><?= esc_html( $card_title ); ?></h3>
 								<p class="card-text"><?= wp_kses_post( $description ); ?></p>
+								<?php
+								if ( get_sub_field( 'link' ) ) {
+									$link = get_sub_field( 'link' );
+									?>
+								<a href="<?= esc_url( $link['url'] ); ?>"
+								   target="<?= esc_attr( $link['target'] ); ?>"
+								   class="fancy-button fancy-button--dark mt-4">
+									<span class="fancy-button__icon fancy-button__icon--left">
+										<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>
+									</span>
+									<span class="fancy-button__label" style="">
+										<?= esc_html( $link['title'] ); ?>
+									</span>
+									<span class="fancy-button__icon fancy-button__icon--right">
+										<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>
+									</span>
+								</a>
+									<?php
+								}
+								?>
 							</div>
 							<div class="col-md-6">
 								<div class="card-image">
