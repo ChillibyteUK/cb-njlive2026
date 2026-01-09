@@ -22480,6 +22480,28 @@ h2.work-heading-text, .work-heading-text.h2 {
   width: 0;
 }
 
+.accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-border-color: transparent;
+  --bs-accordion-btn-focus-border-color: var(--col-black);
+  position: relative;
+  z-index: 2;
+}
+
+.accordion-button {
+  font-size: var(--fs-700);
+  border-bottom: 1px solid var(--col-black);
+}
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.accordion-body {
+  padding-bottom: 4rem;
+}
+
 .service-nav-wrapper {
   position: relative;
   padding-block: 4rem;
@@ -22525,6 +22547,27 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   line-height: 1;
   will-change: transform;
   transform: translateZ(0);
+}
+
+.hover-image-float {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.5);
+  z-index: 1;
+  will-change: transform, opacity;
+}
+
+.hover-image-float img {
+  display: block;
+  max-width: 360px;
+  height: auto;
+  border-top-right-radius: 2rem;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 body {
