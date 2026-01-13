@@ -38,6 +38,9 @@ h2.services-heading-text {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
+  &:last-of-type {
+    text-align: right;
+  }
 }
 
 .services-heading-text .word-inner {

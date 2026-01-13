@@ -1,25 +1,28 @@
 <?php
 /**
- * Block template for CB Hero.
+ * Template for CB Page Hero.
  *
  * @package cb-njlive2026
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$bg = get_field( 'background_image' );
+$width = get_field( 'width_ch' );
+
 ?>
-<section class="hero">
-	<div class="hero__image-wrapper">
-		<?= wp_get_attachment_image( $bg, 'full', false, array( 'class' => 'hero__image' ) ); ?>
-	</div>
-	<div class="container py-5 mt-5">
-		<h1><?= esc_html( get_field( 'title' ) ); ?></h1>
-		<h2><?= esc_html( get_field( 'subtitle' ) ); ?></h2>
-		<div class="hero__intro pb-5">
-			<?= wp_kses_post( get_field( 'intro' ) ); ?>
-		</div>
-		<a href="#content" class="down-arrow"><img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/norton-down-arrow.svg' ); ?>" alt="Down arrow"></a>
-	</div>
+<!-- ======= Hero Section ======= -->
+<section class="page-hero" style="--_heading-width-ch: <?= esc_attr( $width ); ?>ch;">
+	<div class="underlay"></div>
+    <div class="container">
+        <h1 class="arrow-heading-text d-flex flex-column lh-tightest heading-word-slide">
+            <span class="text-start"><?= esc_html( get_field( 'title_one' ) ); ?></span>
+            <span class="text-end"><?= esc_html( get_field( 'title_two' ) ); ?></span>
+        </h1>
+        <span class="arrow-heading-arrow">
+            <svg width="150" height="148" viewBox="0 0 198 194" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="cls-1" d="M100.89,4.24L8.49,96.63l92.4,92.4M8.49,96.63h189" stroke="currentcolor" stroke-width="12" stroke-miterlimit="10"/>
+            </svg>
+        </span>
+    </div>
 </section>
 <a id="content" class="anchor"></a>

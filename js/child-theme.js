@@ -6879,16 +6879,26 @@
 	// Make lenis available globally for GSAP integration
 	window.lenis = lenis;
 
+	// Connect Lenis to GSAP ticker
+	gsap.ticker.add(time => {
+	  lenis.raf(time * 1000);
+	});
+	gsap.ticker.lagSmoothing(0);
+
 	// Arrow heading animation - works with multiple instances
 	function initArrowHeadings() {
 	  gsap.registerPlugin(ScrollTrigger);
-	  const sections = document.querySelectorAll('section.arrow-heading');
+	  const sections = document.querySelectorAll('section.arrow-heading, section.page-hero');
 	  sections.forEach(section => {
 	    const arrow = section.querySelector('.arrow-heading-arrow');
 	    if (arrow) {
+	      // For page-hero (top of page), use bottom as trigger to animate later in scroll
+	      // For other sections, use standard top trigger
+	      const isPageHero = section.classList.contains('page-hero');
+	      const startTrigger = isPageHero ? 'bottom 70%' : 'top 80%';
 	      ScrollTrigger.create({
 	        trigger: section,
-	        start: 'top 80%',
+	        start: startTrigger,
 	        onUpdate: self => {
 	          const clamped = gsap.utils.clamp(0, 0.2, self.progress);
 	          gsap.set(arrow, {
@@ -6929,6 +6939,7 @@
 	      wordMask.className = 'word-mask';
 	      wordMask.style.display = 'inline-block';
 	      wordMask.style.overflow = 'hidden';
+	      wordMask.style.verticalAlign = 'top';
 	      const wordInner = document.createElement('span');
 	      wordInner.className = 'word-inner';
 	      wordInner.textContent = word;
@@ -6995,6 +7006,7 @@
 	        wordMask.className = 'word-mask';
 	        wordMask.style.display = 'inline-block';
 	        wordMask.style.overflow = 'hidden';
+	        wordMask.style.verticalAlign = 'top';
 	        const wordInner = document.createElement('span');
 	        wordInner.className = 'word-inner';
 	        wordInner.textContent = word;

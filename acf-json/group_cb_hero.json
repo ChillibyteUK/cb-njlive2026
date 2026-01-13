@@ -1,10 +1,10 @@
 {
     "key": "group_cb_hero",
-    "title": "CB Hero",
+    "title": "CB Page Hero",
     "fields": [
         {
             "key": "field_68ef76ff3041d",
-            "label": "CB Hero Title",
+            "label": "CB Page Hero",
             "name": "",
             "aria-label": "",
             "type": "message",
@@ -22,8 +22,8 @@
         },
         {
             "key": "field_69258e4fc4d74",
-            "label": "Title (H1)",
-            "name": "title",
+            "label": "Title One (H1)",
+            "name": "title_one",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -43,8 +43,8 @@
         },
         {
             "key": "field_693bdd47bd081",
-            "label": "Subtitle (H2)",
-            "name": "subtitle",
+            "label": "Title Two (H1)",
+            "name": "title_two",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -63,11 +63,11 @@
             "append": ""
         },
         {
-            "key": "field_69258e5cc4d75",
-            "label": "Intro",
-            "name": "intro",
+            "key": "field_696617f2ee774",
+            "label": "Width CH",
+            "name": "width_ch",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "number",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -77,37 +77,13 @@
                 "id": ""
             },
             "default_value": "",
+            "min": "",
+            "max": "",
             "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_68ef76ff30421",
-            "label": "Background Image",
-            "name": "background_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "allow_in_bindings": 0,
-            "preview_size": "thumbnail"
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -128,5 +104,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1765530994
+    "modified": 1768298517
 }

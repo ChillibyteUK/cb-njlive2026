@@ -22168,51 +22168,52 @@ header .dropdown.current-menu-item > .nav-link {
   white-space: nowrap;
 }
 
-.hero__image-wrapper {
+.page-hero {
   position: relative;
+  min-height: calc(75svh - var(--h-top));
   overflow: hidden;
-  height: 400px;
+  isolation: isolate;
+  top: auto;
+  padding: 2rem 0;
+  font-size: 6rem;
+  text-transform: uppercase;
+  z-index: 10;
+  pointer-events: none;
+  will-change: opacity, transform;
+  transform: translateZ(0);
+  align-content: center;
 }
-.hero__image {
+.page-hero .underlay {
   position: absolute;
   top: 0;
+  bottom: 0;
+  right: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
+  background-image: url(../img/pattern.svg);
+  z-index: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-.hero h1, .hero .h1 {
-  color: var(--col-navy);
+.page-hero .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  margin-inline: auto;
 }
-.hero h2, .hero .h2 {
-  color: var(--col-grey-900);
-  margin-bottom: 2rem;
+.page-hero .arrow-heading-text {
+  flex: 0 0 auto;
+  width: var(--_heading-width-ch, 10ch);
+  font-size: inherit;
+  margin: 0;
 }
-.hero__intro {
-  color: var(--col-navy);
-  font-size: var(--fs-400);
-  font-weight: var(--fw-semi);
-  max-width: 90ch;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  10% {
-    transform: translateY(8px);
-  }
-  30% {
-    transform: translateY(4px);
-  }
-}
-.down-arrow {
-  width: 40px;
-  height: 40px;
-  margin: 2rem auto 0;
-  display: block;
-  animation: bounce 1.5s ease-out infinite;
+.page-hero h1, .page-hero .h1 {
+  font-size: var(--fs-900);
+  color: var(--col-slate);
+  line-height: var(--lh-tight);
+  letter-spacing: 0;
+  min-height: 1.2em;
 }
 
 .service-cards {
@@ -22254,6 +22255,9 @@ h2.services-heading-text, .services-heading-text.h2 {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
+}
+.services-heading-text .word-mask:last-of-type {
+  text-align: right;
 }
 
 .services-heading-text .word-inner {
@@ -22552,8 +22556,7 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   align-items: center;
   justify-content: space-between;
 }
-
-h2.arrow-heading-text, .arrow-heading-text.h2 {
+.arrow-heading .arrow-heading-text {
   flex: 0 0 auto;
   width: var(--_heading-width-ch, 10ch);
   font-size: inherit;
