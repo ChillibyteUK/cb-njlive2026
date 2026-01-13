@@ -148,3 +148,21 @@ do_action( 'wp_body_open' );
 		
         </nav>
 	</header>
+
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const navToggle = document.getElementById('navToggle');
+		const navMenu = document.getElementById('primaryNav');
+
+		if (navToggle && navMenu) {
+			// Close menu when clicking outside
+			document.addEventListener('click', function(e) {
+				if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+					if (navMenu.classList.contains('show')) {
+						navToggle.click();
+					}
+				}
+			});
+		}
+	});
+	</script>
