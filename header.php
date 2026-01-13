@@ -105,11 +105,28 @@ do_action( 'wp_body_open' );
 ?>
 <div class="site" id="page">
     <header id="wrapper-navbar" class="fixed-top">
-        <nav id="navbar" class="navbar navbar-expand-lg d-block p-0 py-3" aria-label="Primary navigation">
-            <div class="container d-block d-lg-flex gap-5">
-                <div class="d-flex w-lg-auto justify-content-between align-items-center px-2">
+        <nav id="navbar" class="navbar d-block p-0 py-3" aria-label="Primary navigation">
+            <div class="container-fluid d-block d-lg-flex">
+                <div class="d-flex w-100 justify-content-between align-items-center px-2">
                     <a href="/" class="navbar-brand" rel="home" aria-label="NJ Live home"></a>
-                    <button class="navbar-toggler input-button" id="navToggle" data-bs-toggle="collapse" data-bs-target=".navbars" type="button" aria-label="Navigation"><i class="fa fa-navicon"></i></button>
+					<span class="d-flex align-items-center gap-4">
+						<a href="/connect/"
+							target="_self"
+							class="fancy-button fancy-button--dark">
+							<span class="fancy-button__icon fancy-button__icon--left">
+								<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>
+							</span>
+							<span class="fancy-button__label" style="">
+								Connect
+							</span>
+							<span class="fancy-button__icon fancy-button__icon--right">
+								<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>
+							</span>
+						</a>
+						<button class="navbar-toggler input-button" id="navToggle" data-bs-toggle="collapse" data-bs-target="#primaryNav" type="button" aria-label="Navigation" aria-expanded="false">
+							<i class="fa fa-navicon"></i>
+						</button>
+					</span>
                 </div>
                 <div class="d-flex flex-column-reverse flex-lg-column w-100 gap-2">
                     <?php
@@ -118,7 +135,7 @@ do_action( 'wp_body_open' );
 							'theme_location'  => 'primary_nav',
 							'container_class' => 'pt-2 px-0 p-lg-0 collapse navbar-collapse navbars w-100',
 							'container_id'    => 'primaryNav',
-							'menu_class'      => 'navbar-nav justify-content-end gap-lg-5 w-100 align-items-lg-end mt-2 mt-lg-0',
+							'menu_class'      => 'navbar-nav justify-content-end gap-lg-5 w-100 mt-2 mt-lg-0',
 							'fallback_cb'     => '',
 							'menu_id'         => 'main-menu',
 							'depth'           => 2,

@@ -219,19 +219,3 @@ function lc_theme_enqueue() {
 }
 add_action( 'wp_enqueue_scripts', 'lc_theme_enqueue' );
 
-
-// phpcs:disable
-function add_custom_menu_item($items, $args)
-{
-    if ($args->theme_location == 'primary_nav') {
-
-        $new_item  = '<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" class="d-lg-none menu-item menu-item-type-post_type menu-item-object-page nav-item fs-500 pt-2 pb-4"><i class="fa-solid fa-envelope text-accent-400 ms-3"></i> ' . do_shortcode( '[contact_email]' ) . '</li>';
-        $new_item .= '<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" class="d-lg-none menu-item menu-item-type-post_type menu-item-object-page nav-item fs-500"><i class="fa-solid fa-phone text-accent-400 ms-3"></i> ' . do_shortcode( '[contact_phone]' ) . '</li>';
-        $new_item .= '<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" class="d-lg-none menu-item menu-item-type-post_type menu-item-object-page nav-item mt-4 text-center"><a class="btn btn-yellow" href="' . esc_url( 'tel:' . parse_phone( get_field( 'contact_phone', 'options' ) ) ) . '">Emergency Call Out</a></li>';
-
-        $items .= $new_item;
-    }
-    return $items;
-}
-add_filter('wp_nav_menu_items', 'add_custom_menu_item', 10, 2);
-// phpcs:enable

@@ -21946,110 +21946,156 @@ b,
     transition: none;
   }
 }
-header {
-  background-color: var(--col-navy);
-  transition: var(--transition);
-  font-family: var(--ff-body);
+#wrapper-navbar {
+  pointer-events: none;
 }
-header .navbar {
-  height: 100%;
+
+#wrapper-navbar a,
+#wrapper-navbar button {
+  pointer-events: auto;
 }
-header .navbar-toggler i {
-  color: var(--col-white);
-}
-header #navbar {
-  height: 100%;
-}
-header .navbar-nav {
-  margin-block: 0;
-}
-header li.menu-item {
-  list-style: none !important;
-}
-header a,
-header a.nav-link {
-  color: var(--col-white);
-  font-size: var(--fs-400);
-  font-weight: var(--fw-semi);
-  transition: var(--transition);
-  display: inline-block;
-  text-decoration: none;
-  text-transform: initial;
-  padding: 0;
-}
-@media (min-width: 992px) {
-  header a:hover,
-  header a.nav-link:hover {
-    color: var(--col-grey);
-    text-decoration: none;
-  }
-}
-header a:focus,
-header a.nav-link:focus {
-  color: var(--col-grey);
-  text-decoration: none;
-}
-header a.dropdown-item {
-  font-size: var(--fs-300);
-}
+
 header .navbar-brand {
   background-image: url(../img/nj-logo.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top left;
-  aspect-ratio: 247.56/45.3;
-  width: 248px;
-  height: 45px;
+  aspect-ratio: 113/139;
+  width: 64px;
   margin-right: 0;
 }
-header .current_page_item > .nav-link,
-header .current_page_parent > .nav-link,
-header .current-page-ancestor > .nav-link,
-header .current-menu-ancestor > .nav-link,
-header .current-menu-parent > .nav-link,
-header .dropdown.current-page-ancestor > .nav-link,
-header .dropdown.current-menu-ancestor > .nav-link,
-header .dropdown.current-menu-item > .nav-link {
-  color: var(--col-grey);
-  font-weight: var(--fw-semi);
+header .navbar-toggler {
+  position: relative;
+  z-index: 10002;
+  background: transparent;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
 }
-@media (max-width: 991px) {
-  header {
-    /* Prevent horizontal overflow in Chrome device emulation */
+header .navbar-toggler i {
+  color: black;
+  font-size: 1.25rem;
+}
+header .navbar-toggler[aria-expanded=true] i::before {
+  content: "\f00d";
+}
+header #primaryNav.navbar-collapse {
+  position: fixed !important;
+  top: 1.5rem !important;
+  right: 1rem !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: 350px !important;
+  max-width: 90vw !important;
+  height: auto !important;
+  background: white !important;
+  border-radius: 1.5rem !important;
+  padding: 2rem !important;
+  margin: 0 !important;
+  z-index: 10000 !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+  display: block !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: scale(0.8) !important;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0s 0.3s !important;
+  transform-origin: top right !important;
+  pointer-events: none !important;
+}
+header #primaryNav.navbar-collapse.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: scale(1) !important;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  pointer-events: auto !important;
+}
+header #primaryNav.navbar-collapse::before {
+  display: none;
+}
+header #primaryNav.navbar-collapse.show::before {
+  display: none;
+}
+header .navbar-nav {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  text-align: left !important;
+}
+header .navbar-nav .menu-item {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0;
+  transform: translateY(10px);
+  text-align: left !important;
+}
+header #primaryNav.show .navbar-nav .menu-item {
+  animation: fadeInUp 0.4s ease forwards;
+}
+header #primaryNav.show .navbar-nav .menu-item:nth-child(1) {
+  animation-delay: 0.38s;
+}
+header #primaryNav.show .navbar-nav .menu-item:nth-child(2) {
+  animation-delay: 0.46s;
+}
+header #primaryNav.show .navbar-nav .menu-item:nth-child(3) {
+  animation-delay: 0.54s;
+}
+header #primaryNav.show .navbar-nav .menu-item:nth-child(4) {
+  animation-delay: 0.62s;
+}
+header #primaryNav.show .navbar-nav .menu-item:nth-child(5) {
+  animation-delay: 0.7s;
+}
+header #primaryNav.show .navbar-nav .menu-item:nth-child(6) {
+  animation-delay: 0.78s;
+}
+header #primaryNav.show .navbar-nav .menu-item:nth-child(7) {
+  animation-delay: 0.86s;
+}
+header #primaryNav.show .navbar-nav .menu-item:nth-child(8) {
+  animation-delay: 0.94s;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  header .navbar {
-    overflow-x: hidden;
-    max-width: 100%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  header .container {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  header .navbar-collapse {
-    min-height: 100svh;
-    /* Do not set display:flex or height, let Bootstrap animate */
-  }
-  header .navbar-nav {
-    width: 100%;
-    padding-bottom: 2rem;
-  }
-  header .nav-link,
-  header .navbar-nav .nav-link {
-    font-size: var(--fs-400);
-    font-weight: var(--fw-semi);
-    padding: 0.75rem 1rem;
-  }
-  header .fa-solid,
-  header a:hover {
-    color: var(--col-accent) !important;
-    text-decoration: none;
-  }
-  header .dropdown-item {
-    font-size: var(--fs-400);
-  }
-  header .fs-subtle a {
-    font-size: var(--fs-400);
-  }
+}
+header .nav-link,
+header .navbar-nav .nav-link {
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  padding: 0.5rem 0 !important;
+  color: #000 !important;
+  text-align: left !important;
+  display: block !important;
+  margin: 0 !important;
+}
+header .nav-link:hover,
+header .navbar-nav .nav-link:hover {
+  color: #666 !important;
+}
+header .current_page_item .nav-link,
+header .current_page_parent .nav-link,
+header .current-page-ancestor .nav-link,
+header .current-menu-ancestor .nav-link,
+header .current-menu-parent .nav-link,
+header .current-menu-item .nav-link {
+  color: #00bcd4 !important;
 }
 
 .footer {
