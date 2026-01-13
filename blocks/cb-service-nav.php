@@ -10,26 +10,6 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <section class="service-nav">
 	<div class="service-nav-wrapper">
-		<div class="service-nav-heading">
-			<div class="container">
-				<h2 class="service-nav-heading-text d-flex flex-column lh-tightest word-slide-effect">
-					<span class="text-start">OUR</span>
-					<span class="text-end">SERVICES</span>
-				</h2>
-				<span class="service-nav-heading-arrow">
-					<svg width="150" height="148" viewBox="0 0 198 194" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path class="cls-1" d="M100.89,4.24L8.49,96.63l92.4,92.4M8.49,96.63h189" stroke="currentcolor" stroke-width="12" stroke-miterlimit="10"/>
-					</svg>
-				</span>
-			</div>
-		</div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 fs-600 fw-medium lh-tight">
-                   <?= esc_html( get_field( 'intro' ) ); ?> 
-                </div>
-            </div>
-        </div>
         <!-- container for accordion -->
         <div class="container py-5">
             <div class="accordion">

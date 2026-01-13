@@ -19,6 +19,40 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'cb_two_col_intro_text',
+                'title'           => __( 'CB Two Col Intro Text' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-two-col-intro-text.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
+                'name'            => 'cb_arrow_heading',
+                'title'           => __( 'CB Arrow Heading' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-arrow-heading.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'cb_service_nav',
                 'title'           => __( 'CB Service Nav' ),
                 'category'        => 'layout',

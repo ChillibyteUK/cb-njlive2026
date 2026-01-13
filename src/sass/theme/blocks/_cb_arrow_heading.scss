@@ -1,0 +1,24 @@
+.arrow-heading {
+  position: relative;
+  top: auto;
+  padding: 2rem 0;
+  font-size: 6rem;
+  text-transform: uppercase;
+  z-index: 10;
+  pointer-events: none;
+  will-change: opacity, transform;
+  transform: translateZ(0); // GPU acceleration
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .arrow-heading-text {
+    flex: 0 0 auto;
+    width: var(--_heading-width-ch, 10ch);
+    font-size: inherit;
+    margin: 0;
+  }
+}

@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="work-wrapper">
 		<div class="work-heading">
 			<div class="container">
-				<h2 class="work-heading-text d-flex flex-column lh-tightest word-slide-effect">
+				<h2 class="work-heading-text d-flex flex-column lh-tightest heading-word-slide">
 					<span class="text-start">OUR</span>
 					<span class="text-end">WORK</span>
 				</h2>
@@ -109,7 +109,7 @@ gsap.registerPlugin(ScrollTrigger);
 function initWorkHeading() {
 	const wrapper = document.querySelector(".work-wrapper");
 	const heading = wrapper?.querySelector(".work-heading");
-	const headingText = heading?.querySelector(".work-heading-text.word-slide-effect");
+	const headingText = heading?.querySelector(".work-heading-text.heading-word-slide");
 
 	if (!heading || !headingText) return;
 

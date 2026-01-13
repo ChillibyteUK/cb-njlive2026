@@ -26,27 +26,6 @@
             "new_lines": "wpautop"
         },
         {
-            "key": "field_695fe6fb149e3",
-            "label": "Intro",
-            "name": "intro",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
             "key": "field_695fe703149e4",
             "label": "Items",
             "name": "items",
@@ -160,5 +139,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1767892777
+    "modified": 1768293233
 }
