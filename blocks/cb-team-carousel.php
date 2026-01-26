@@ -47,6 +47,7 @@ $block_id = 'team-carousel-' . wp_rand( 1000, 9999 );
 						}
 						?>
 						<div class="team-member__content">
+							<div class="team-member__content-overlay"></div>
 							<h3 class="team-member__name"><?php echo esc_html( $title ); ?></h3>
 							<?php if ( $job_title ) : ?>
 								<p class="team-member__title"><?php echo esc_html( $job_title ); ?></p>
@@ -84,7 +85,6 @@ $block_id = 'team-carousel-' . wp_rand( 1000, 9999 );
 	<div class="team-modal" id="team-modal-<?php echo esc_attr( $block_id ); ?>" style="display: none;">
 		<div class="team-modal__overlay"></div>
 		<div class="team-modal__content">
-			<button class="team-modal__close" aria-label="Close modal">&times;</button>
 			<div class="team-modal__body"></div>
 		</div>
 	</div>
@@ -246,10 +246,9 @@ add_action(
 			// Modal functionality
 			const modal = document.getElementById('team-modal-<?php echo esc_js( $block_id ); ?>');
 			const modalBody = modal?.querySelector('.team-modal__body');
-			const modalClose = modal?.querySelector('.team-modal__close');
-			const modalOverlay = modal?.querySelector('.team-modal__overlay');
+		const modalOverlay = modal?.querySelector('.team-modal__overlay');
 
-			if (!modal || !modalBody || !modalClose || !modalOverlay) {
+		if (!modal || !modalBody || !modalOverlay) {
 				console.error('[Carousel] Modal elements missing');
 				return;
 			}
@@ -279,9 +278,7 @@ add_action(
 								<div class="team-modal__image">${data.image}</div>
 								${data.secondaryImage ? `<div class="team-modal__secondary-image">${data.secondaryImage}</div>` : ''}
 								<div class="team-modal__text">
-									<h2>${data.title}</h2>
-									<div class="content">${data.content}</div>
-								</div>
+									<div class="content">${data.content}</div>								<button class="team-modal__close" aria-label="Close modal">&times;</button>								</div>
 							`;
 							
 							modal.style.display = 'flex';
@@ -299,7 +296,11 @@ add_action(
 				document.body.style.overflow = '';
 			}
 
-			modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', function(e) {
+			if (e.target.classList.contains('team-modal__close')) {
+				closeModal();
+			}
+		});
 			modalOverlay.addEventListener('click', closeModal);
 			
 			// Handle window resize
