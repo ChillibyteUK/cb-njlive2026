@@ -54,8 +54,8 @@ function applyPalette() {
   const cols = readPalette();
   const r = PALETTE_RATIOS[mode] || PALETTE_RATIOS['mint-blue'];
 
-  console.log('applyPalette called - mode:', mode);
-  console.log('Parsed colors:', cols);
+  // console.log('applyPalette called - mode:', mode);
+  // console.log('Parsed colors:', cols);
 
   uniforms.uColA.value.set(cols[0][0], cols[0][1], cols[0][2]);
   uniforms.uColB.value.set(cols[1][0], cols[1][1], cols[1][2]);
@@ -66,7 +66,7 @@ function applyPalette() {
   uniforms.uRatioC.value = r.c || 0;
   uniforms.uRatioW.value = r.w;
 
-  console.log('Uniforms set - uColA:', uniforms.uColA.value, 'uColB:', uniforms.uColB.value, 'uColC:', uniforms.uColC.value, 'uColD:', uniforms.uColD.value);
+  // console.log('Uniforms set - uColA:', uniforms.uColA.value, 'uColB:', uniforms.uColB.value, 'uColC:', uniforms.uColC.value, 'uColD:', uniforms.uColD.value);
 }
 applyPalette();
 
