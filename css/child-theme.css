@@ -22836,7 +22836,7 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
 .carousel-controls {
   position: absolute;
   top: 50%;
-  left: calc(42vw + 1.5rem + 11vw);
+  left: calc(45vw + 1.5rem + 11vw);
   transform: translate(-50%, -50%);
   display: flex;
   gap: calc(22vw + 2rem);
