@@ -97,7 +97,7 @@ add_action(
 		?>
 		<script>
 		(function() {
-			const carouselEl = document.getElementById('<?php echo esc_js( $block_id ); ?>');
+			const carouselEl = document.getElementById('team');
 			
 			if (!carouselEl || typeof gsap === 'undefined') {
 				console.error('[Carousel] Missing element or GSAP not loaded');
