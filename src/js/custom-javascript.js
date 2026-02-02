@@ -24,10 +24,11 @@ function initArrowHeadings() {
 	sections.forEach((section) => {
 		const arrow = section.querySelector('.arrow-heading-arrow');
 		if (arrow) {
-			// For page-hero (top of page), use bottom as trigger to animate later in scroll
+			// For page-hero or case-study arrow-heading (top of page), use bottom as trigger to animate later in scroll
 			// For other sections, use standard top trigger
 			const isPageHero = section.classList.contains('page-hero');
-			const startTrigger = isPageHero ? 'bottom 70%' : 'top 80%';
+			const isCaseStudyArrow = section.classList.contains('arrow-heading') && document.querySelector('.case-study-single');
+			const startTrigger = (isPageHero || isCaseStudyArrow) ? 'bottom 30%' : 'top 80%';
 			
 			ScrollTrigger.create({
 				trigger: section,

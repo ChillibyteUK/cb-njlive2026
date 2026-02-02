@@ -38,6 +38,13 @@
                 "operator": "==",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "casestudy"
+            }
         ]
     ],
     "menu_order": 0,
@@ -49,6 +56,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "display_title": "",
-    "modified": 1767799437
+    "modified": 1770044513
 }

@@ -63,38 +63,6 @@ function cb_enqueue_theme_js() {
 }
 add_action( 'wp_enqueue_scripts', 'cb_enqueue_theme_js', 20 );
 
-
-/**
- * Enqueue blob background assets (CSS + JS) with filemtime versioning.
- */
-function cb_enqueue_blob_background_assets() {
-	// CSS.
-	$css_rel = '/css/blob-background.css';
-	$css_abs = get_stylesheet_directory() . $css_rel;
-	if ( file_exists( $css_abs ) ) {
-		wp_enqueue_style(
-			'cb-blob-background',
-			get_stylesheet_directory_uri() . $css_rel,
-			array( 'lc-theme' ),
-			filemtime( $css_abs )
-		);
-	}
-
-	// JS.
-	$js_rel = '/js/blob-background.js';
-	$js_abs = get_stylesheet_directory() . $js_rel;
-	if ( file_exists( $js_abs ) ) {
-		wp_enqueue_script(
-			'cb-blob-background',
-			get_stylesheet_directory_uri() . $js_rel,
-			array(),
-			filemtime( $js_abs ),
-			true
-		);
-	}
-}
-// add_action( 'wp_enqueue_scripts', 'cb_enqueue_blob_background_assets', 21 );
-
 /**
  * Enqueue Three.js animated background when ACF field is set.
  */

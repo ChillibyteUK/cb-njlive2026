@@ -22173,6 +22173,16 @@ header .current-menu-item .nav-link {
   border-width: 2px;
 }
 
+.case-study-single .arrow-heading {
+  text-transform: initial;
+}
+.case-study-single .arrow-heading h2, .case-study-single .arrow-heading .h2 {
+  font-size: 4rem !important;
+}
+.case-study-single .arrow-heading span.text-end {
+  text-align: left !important;
+}
+
 .home-hero {
   position: relative;
   min-height: calc(100svh - var(--h-top));
