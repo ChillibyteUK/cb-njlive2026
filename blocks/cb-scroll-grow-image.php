@@ -52,7 +52,7 @@ if ( ! function_exists( 'cb_scroll_grow_image_enqueue' ) ) {
 }
 
 ?>
-<section class="grow-image" id="<?php echo esc_attr( $block_id ); ?>">
+<section class="grow-image py-5" id="<?php echo esc_attr( $block_id ); ?>">
     <div class="container">
         <?php echo wp_get_attachment_image( $image_id, 'full' ); ?>
     </div>
