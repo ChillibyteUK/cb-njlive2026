@@ -23002,6 +23002,18 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   display: block;
 }
 
+.grow-image {
+  overflow: hidden;
+}
+.grow-image img {
+  border-radius: 2rem;
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: center;
+  will-change: transform;
+}
+
 body {
   background-color: var(--col-white);
 }

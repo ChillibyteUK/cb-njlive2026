@@ -1,0 +1,12 @@
+.grow-image {
+	overflow: hidden;
+	
+	img {
+        border-radius: 2rem;
+		display: block;
+		width: 100%;
+		height: auto;
+		transform-origin: center;
+		will-change: transform;
+	}
+}
