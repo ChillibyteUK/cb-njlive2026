@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
                 <?= wp_get_attachment_image( get_field( 'image' ), 'full' ); ?>
             </div>
             <div class="col-md-4">
-                <h2 class="h3">The Solution</h2>
+                <h2 class="fw-medium">The Solution</h2>
                 <?= wp_kses_post( get_field( 'content' ) ); ?>
             </div>
         </div>
