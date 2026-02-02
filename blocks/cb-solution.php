@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<section class="solution py-5">
+<section class="solution py-5 has-light-grey-background-color">
     <div class="container">
         <div class="row">
             <div class="col-md-8">

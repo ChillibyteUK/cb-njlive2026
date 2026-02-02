@@ -115,8 +115,9 @@ figure {
 
 strong,
 b,
-.fw-semi {
-  font-weight: var(--fw-semi);
+.fw-semi,
+.fw-medium {
+  font-weight: var(--fw-medium);
 }
 
 .fw-bold {

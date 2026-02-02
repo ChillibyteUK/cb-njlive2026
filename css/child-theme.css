@@ -21697,8 +21697,9 @@ figure {
 
 strong,
 b,
-.fw-semi {
-  font-weight: var(--fw-semi);
+.fw-semi,
+.fw-medium {
+  font-weight: var(--fw-medium);
 }
 
 .fw-bold {
@@ -23086,9 +23087,6 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   font-size: var(--fs-400);
 }
 
-.solution {
-  background-color: var(--col-light-gray);
-}
 .solution img {
   border-radius: 1rem;
   width: 100%;
