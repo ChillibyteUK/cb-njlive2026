@@ -19,6 +19,23 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'cb_solution',
+                'title'           => __( 'CB Solution' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-solution.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'cb_stat_spinner',
                 'title'           => __( 'CB Stat Spinner' ),
                 'category'        => 'layout',
