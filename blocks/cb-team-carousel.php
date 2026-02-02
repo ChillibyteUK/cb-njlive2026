@@ -24,7 +24,7 @@ if ( ! $team_members->have_posts() ) {
 $block_id = 'team-carousel-' . wp_rand( 1000, 9999 );
 ?>
 
-<div class="cb-team-carousel" id="<?php echo esc_attr( $block_id ); ?>">
+<div class="cb-team-carousel" id="team">
 	<div class="carousel-container">
 		<div class="carousel-track">
 			<?php
