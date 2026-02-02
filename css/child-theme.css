@@ -23037,6 +23037,55 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   transform: scale(1.1);
 }
 
+.stat-spinner {
+  color: var(--col-black);
+  padding-block: 2rem 4rem;
+}
+.stat-spinner h2, .stat-spinner .h2 {
+  padding-bottom: 1.5rem;
+  font-weight: var(--fw-normal);
+  font-size: 6rem;
+  line-height: var(--lh-tight);
+}
+.stat-spinner__item {
+  justify-items: center;
+  gap: 0.5rem;
+}
+@media (min-width: 992px) {
+  .stat-spinner__item {
+    display: grid;
+    grid-template-rows: 3.5rem auto auto;
+  }
+}
+@media (min-width: 992px) {
+  .stat-spinner__item:not(:last-child) {
+    border-inline-end: 3px solid var(--col-black);
+  }
+}
+.stat-spinner__stat {
+  font-size: var(--fs-600);
+  text-align: center;
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  .stat-spinner__stat {
+    font-size: var(--fs-700);
+  }
+}
+@media (min-width: 1200px) {
+  .stat-spinner__stat {
+    font-size: var(--fs-800);
+  }
+}
+.stat-spinner__label {
+  text-align: center;
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-400);
+}
+
 body {
   background-color: var(--col-white);
 }
