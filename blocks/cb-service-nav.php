@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<section class="service-nav">
+<section class="service-nav" id="servicenav">
 	<div class="service-nav-wrapper">
         <!-- container for accordion -->
         <div class="container py-5">
