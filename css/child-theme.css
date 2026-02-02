@@ -23023,6 +23023,9 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   height: auto;
   transform-origin: center;
   will-change: transform;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .full-image-grow {
