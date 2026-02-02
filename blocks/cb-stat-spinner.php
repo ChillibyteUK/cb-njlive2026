@@ -18,12 +18,10 @@ defined( 'ABSPATH' ) || exit;
 				the_row();
 				$layout = get_row_layout();
 				if ( $layout === 'numeric' ) {
-					$prelabel = get_sub_field( 'pre_label' );
 					$stat     = get_sub_field( 'stat' );
 					$label    = get_sub_field( 'label' );
 					?>
 					<div class="col-lg-4 stat-spinner__item pt-4">
-						<!-- <div class="stat-spinner__label"><?= esc_html( $prelabel ); ?></div> -->
 						<div class="stat-spinner__stat">
 							<?php if ( get_sub_field( 'prefix' ) ) { ?>
 								<span class="stat-spinner__prefix"><?= esc_html( get_sub_field( 'prefix' ) ); ?></span>
@@ -37,13 +35,11 @@ defined( 'ABSPATH' ) || exit;
 					</div>
 					<?php
 				} elseif ( $layout === 'text' ) {
-					$prelabel = get_sub_field( 'pre_label' );
 					$stat     = get_sub_field( 'stat' );
 					$label    = get_sub_field( 'label' );
 
 					?>
 					<div class="col-lg-4 stat-spinner__item pt-4">
-						<div class="stat-spinner__label"><?= esc_html( $prelabel ); ?></div>
 						<div class="stat-spinner__stat">
 							<span class="stat-spinner__value text-value"><?= esc_html( $stat ); ?></span>
 						</div>
