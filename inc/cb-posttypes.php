@@ -44,7 +44,7 @@ function cb_register_post_types() {
 			'capability_type'    => 'post',
 			'map_meta_cap'       => true,
 			'rewrite'            => array(
-				'slug'       => 'case-studies',
+				'slug'       => 'work',
 				'with_front' => false,
 			),
 		),
