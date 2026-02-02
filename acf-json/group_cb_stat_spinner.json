@@ -42,27 +42,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_689cba92bfc7d",
-                            "label": "Pre Label",
-                            "name": "pre_label",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "allow_in_bindings": 0,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
                             "key": "field_689cba9cbfc7e",
                             "label": "Prefix",
                             "name": "prefix",
@@ -159,27 +138,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_689cbae8bfc84",
-                            "label": "Pre Label",
-                            "name": "pre_label",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "allow_in_bindings": 0,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
                             "key": "field_689cbaf3bfc85",
                             "label": "Stat",
                             "name": "stat",
@@ -249,5 +207,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1755102317
+    "modified": 1770045906
 }
