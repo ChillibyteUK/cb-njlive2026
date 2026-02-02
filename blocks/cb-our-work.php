@@ -84,7 +84,7 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 		</div>
 		<div class="pt-5 text-center">
-			<a href="#" target="" class="fancy-button">
+			<a href="/work/" target="" class="fancy-button">
 				<span class="fancy-button__icon fancy-button__icon--left">
 					<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>
 				</span>
