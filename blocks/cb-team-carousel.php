@@ -29,12 +29,23 @@ $members = array();
 while ( $team_members->have_posts() ) {
 	$team_members->the_post();
 	$post_id = get_the_ID();
+	$image_html = '';
+	if ( has_post_thumbnail() ) {
+		$image_url = get_the_post_thumbnail_url( $post_id, 'full' );
+		$image_alt = get_post_meta( get_post_thumbnail_id( $post_id ), '_wp_attachment_image_alt', true );
+		$image_html = sprintf(
+			'<img src="%s" alt="%s" loading="lazy">',
+			esc_url( $image_url ),
+			esc_attr( $image_alt )
+		);
+	}
+	
 	$members[] = array(
 		'id'             => $post_id,
 		'title'          => get_the_title(),
 		'job_title'      => get_field( 'role', $post_id ) ?? '',
 		'content'        => get_the_content(),
-		'image'          => has_post_thumbnail() ? get_the_post_thumbnail( $post_id, 'full', array( 'srcset' => '' ) ) : '',
+		'image'          => $image_html,
 		'secondary_image_id' => get_field( 'secondary_image', $post_id ),
 	);
 }
