@@ -12,8 +12,9 @@ $team_members = new WP_Query(
 		'post_type'      => 'person',
 		'posts_per_page' => -1,
 		'post_status'    => 'publish',
-		'orderby'        => 'menu_order',
+		'orderby'        => 'title',
 		'order'          => 'ASC',
+		'suppress_filters' => true,
 	)
 );
 
@@ -22,61 +23,96 @@ if ( ! $team_members->have_posts() ) {
 }
 
 $block_id = 'team-carousel-' . wp_rand( 1000, 9999 );
+
+// Build array of team members
+$members = array();
+while ( $team_members->have_posts() ) {
+	$team_members->the_post();
+	$post_id = get_the_ID();
+	$members[] = array(
+		'id'             => $post_id,
+		'title'          => get_the_title(),
+		'job_title'      => get_field( 'role', $post_id ) ?? '',
+		'content'        => get_the_content(),
+		'image'          => has_post_thumbnail() ? get_the_post_thumbnail( $post_id, 'full' ) : '',
+		'secondary_image_id' => get_field( 'secondary_image', $post_id ),
+	);
+}
+wp_reset_postdata();
 ?>
 
-<div class="cb-team-carousel" id="team">
-	<div class="carousel-container">
-		<div class="carousel-track">
-			<?php
-			while ( $team_members->have_posts() ) {
-				$team_members->the_post();
-				$post_id = get_the_ID();
-				$title   = get_the_title();
-				$job_title = get_field( 'role', $post_id ) ?? '';
-				$content = get_the_content();
-				$secondary_image_id = get_field( 'secondary_image', $post_id );
-				$secondary_image_url = $secondary_image_id ? wp_get_attachment_image_url( $secondary_image_id, 'large' ) : '';
-				?>
-				<div class="carousel-slide" data-post-id="<?php echo esc_attr( $post_id ); ?>">
-					<div class="team-member">
-						<?php
-						if ( has_post_thumbnail() ) {
-							echo '<div class="team-member__image">';
-							the_post_thumbnail( 'large' );
-							echo '</div>';
-						}
-						?>
-						<div class="team-member__content">
-							<div class="team-member__content-overlay"></div>
-							<h3 class="team-member__name"><?php echo esc_html( $title ); ?></h3>
-							<?php if ( $job_title ) : ?>
-								<p class="team-member__title"><?php echo esc_html( $job_title ); ?></p>
-                            <?php endif; ?>
-						</div>
-						<div class="team-member__modal-data" style="display: none;">
-							<div class="modal-title"><?php echo esc_html( $title ); ?></div>
-							<div class="modal-image"><?php echo has_post_thumbnail() ? get_the_post_thumbnail( $post_id, 'large' ) : ''; ?></div>
-							<div class="modal-secondary-image"><?php echo $secondary_image_url ? '<img src="' . esc_url( $secondary_image_url ) . '" alt="' . esc_attr( $title ) . '">' : ''; ?></div>
-							<div class="modal-content"><?php echo wp_kses_post( $content ); ?></div>
-						</div>
+<div class="cb-team-carousel" id="<?php echo esc_attr( $block_id ); ?>">
+	<!-- Left Swiper (inactive slides) -->
+	<div class="team-carousel__left">
+		<div class="swiper" id="<?php echo esc_attr( $block_id ); ?>-left">
+			<div class="swiper-wrapper">
+				<?php foreach ( $members as $member ) : ?>
+					<div class="swiper-slide">
+						<?php echo $member['image']; ?>
 					</div>
-				</div>
-				<?php
-			}
-			wp_reset_postdata();
-			?>
+				<?php endforeach; ?>
+			</div>
 		</div>
 	</div>
 
-	<div class="carousel-controls">
-		<button class="carousel-btn carousel-btn--prev" aria-label="<?php esc_attr_e( 'Previous slide', 'cb-njlive2026' ); ?>">
-			<svg viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+	<!-- Center Swiper (active slide with details) -->
+	<div class="team-carousel__center">
+		<div class="swiper" id="<?php echo esc_attr( $block_id ); ?>-center">
+			<div class="swiper-wrapper">
+				<?php foreach ( $members as $member ) : ?>
+					<div class="swiper-slide" data-post-id="<?php echo esc_attr( $member['id'] ); ?>">
+						<div class="team-member__image-container">
+							<?php echo $member['image']; ?>
+							<div class="team-member__details">
+								<span class="team-member__name"><?php echo esc_html( $member['title'] ); ?></span>
+								<?php if ( $member['job_title'] ) : ?>
+									<span class="team-member__title"><?php echo esc_html( $member['job_title'] ); ?></span>
+								<?php endif; ?>
+							</div>
+						</div>
+						<div class="team-member__modal-data" style="display: none;">
+							<div class="modal-title"><?php echo esc_html( $member['title'] ); ?></div>
+							<div class="modal-image"><?php echo $member['image']; ?></div>
+							<div class="modal-secondary-image">
+								<?php 
+								if ( $member['secondary_image_id'] ) {
+									echo wp_get_attachment_image( $member['secondary_image_id'], 'large' );
+								}
+								?>
+							</div>
+							<div class="modal-content"><?php echo wp_kses_post( $member['content'] ); ?></div>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</div>
+
+	<!-- Right Swiper (inactive slides) -->
+	<div class="team-carousel__right">
+		<div class="swiper" id="<?php echo esc_attr( $block_id ); ?>-right">
+			<div class="swiper-wrapper">
+				<?php foreach ( $members as $member ) : ?>
+					<div class="swiper-slide">
+						<?php echo $member['image']; ?>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</div>
+
+	<!-- Navigation Arrows -->
+	<div class="team-carousel__arrows">
+		<button class="team-carousel__arrow team-carousel__arrow--prev" aria-label="<?php esc_attr_e( 'Previous slide', 'cb-njlive2026' ); ?>">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.53 81.57">
+				<path fill="#fff" d="M5.66 36.63H78.53V44.63H5.66z"></path>
+				<path fill="#fff" d="M40.92 81.57L0 40.65 40.65 0 46.31 5.66 11.31 40.65 46.57 75.91 40.92 81.57z"></path>
 			</svg>
 		</button>
-		<button class="carousel-btn carousel-btn--next" aria-label="<?php esc_attr_e( 'Next slide', 'cb-njlive2026' ); ?>">
-			<svg viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+		<button class="team-carousel__arrow team-carousel__arrow--next" aria-label="<?php esc_attr_e( 'Next slide', 'cb-njlive2026' ); ?>">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.53 81.57">
+				<path fill="#fff" d="M0 36.94h72.87v8H0z"></path>
+				<path fill="#fff" d="M37.88 81.57l-5.65-5.66 34.99-34.99L31.96 5.66 37.62 0l40.91 40.92-40.65 40.65z"></path>
 			</svg>
 		</button>
 	</div>
@@ -97,223 +133,127 @@ add_action(
 		?>
 		<script>
 		(function() {
-			const carouselEl = document.getElementById('team');
+			const carouselId = '<?php echo esc_js( $block_id ); ?>';
+			const carouselEl = document.getElementById(carouselId);
 			
-			if (!carouselEl || typeof gsap === 'undefined') {
-				console.error('[Carousel] Missing element or GSAP not loaded');
+			if (!carouselEl || typeof Swiper === 'undefined') {
+				console.error('[Team Carousel] Missing element or Swiper not loaded');
 				return;
 			}
 
-			const track = carouselEl.querySelector('.carousel-track');
-			const origSlides = Array.from(carouselEl.querySelectorAll('.carousel-slide'));
-			const prevBtn = carouselEl.querySelector('.carousel-btn--prev');
-			const nextBtn = carouselEl.querySelector('.carousel-btn--next');
-
-			if (!track || origSlides.length === 0 || !prevBtn || !nextBtn) {
-				console.error('[Carousel] Missing required elements');
-				return;
-			}
-
-			const slideCount = origSlides.length;
-			const bufferThreshold = Math.max(10, slideCount * 2);
+			// Get the total count for proper looping
+			const slideCount = carouselEl.querySelectorAll('#' + carouselId + '-center .swiper-slide').length;
 			
-			// Store original index on each original slide
-			origSlides.forEach((slide, idx) => {
-				slide.dataset.originalIdx = idx;
+			console.log('Slide count:', slideCount);
+
+			// Initialize all three swipers identically
+			const swiperLeft = new Swiper('#' + carouselId + '-left', {
+				slidesPerView: 'auto',
+				spaceBetween: 10,
+				loop: true,
+				loopAdditionalSlides: slideCount,
+				speed: 600,
 			});
-			
-			// Add initial buffer slides - 3 sets on each side
-			for (let i = 0; i < slideCount * 3; i++) {
-				const slideToClone = origSlides[i % slideCount];
-				const clone = slideToClone.cloneNode(true);
-				clone.dataset.originalIdx = i % slideCount;
-				track.insertBefore(clone, track.firstChild);
-			}
-			for (let i = 0; i < slideCount * 3; i++) {
-				const slideToClone = origSlides[i % slideCount];
-				const clone = slideToClone.cloneNode(true);
-				clone.dataset.originalIdx = i % slideCount;
-				track.appendChild(clone);
-			}
 
-			let allSlides = track.querySelectorAll('.carousel-slide');
-			let currentDOMIndex = slideCount * 3 + 3;
-			let slidePixelWidth = 0;
-			
-			const calculateSlideWidth = () => {
-				if (allSlides.length > 0) {
-					slidePixelWidth = allSlides[0].offsetWidth;
-				}
-			};
-			
-			const updateCarousel = (animate = true, skipScaling = false) => {
-				if (slidePixelWidth === 0) {
-					calculateSlideWidth();
-				}
-				
-				const newX = -((currentDOMIndex - 3) * slidePixelWidth);
-				
-				if (animate) {
-					gsap.to(track, {
-						x: newX + 'px',
-						duration: 0.6,
-						ease: 'power2.inOut'
-					});
-				} else {
-					gsap.set(track, { x: newX + 'px' });
-				}
-
-				if (!skipScaling) {
-					allSlides.forEach((slide, idx) => {
-						const isActive = idx === currentDOMIndex;
-						const teamMember = slide.querySelector('.team-member');
-						
-						if (isActive) {
-							slide.classList.add('active');
-						} else {
-							slide.classList.remove('active');
-						}
-						
-						if (teamMember) {
-							teamMember.style.cursor = isActive ? 'pointer' : 'default';
-						}
-					});
-				}
-			};
-
-			const moveNext = () => {
-				if (currentDOMIndex >= allSlides.length - bufferThreshold) {
-					for (let i = 0; i < slideCount; i++) {
-						const slideToClone = origSlides[i];
-						const clone = slideToClone.cloneNode(true);
-						clone.dataset.originalIdx = i;
-						track.appendChild(clone);
-					}
-					allSlides = track.querySelectorAll('.carousel-slide');
-					attachModalHandlers(allSlides, allSlides.length - slideCount);
-				}
-				
-				currentDOMIndex++;
-				updateCarousel();
-			};
-
-			const movePrev = () => {
-				if (currentDOMIndex <= bufferThreshold) {
-					for (let i = slideCount - 1; i >= 0; i--) {
-						const slideToClone = origSlides[i];
-						const clone = slideToClone.cloneNode(true);
-						clone.dataset.originalIdx = i;
-						track.insertBefore(clone, track.firstChild);
-					}
-					currentDOMIndex += slideCount;
-					allSlides = track.querySelectorAll('.carousel-slide');
-					attachModalHandlers(allSlides, 0, slideCount);
-					
-					calculateSlideWidth();
-					const newX = -((currentDOMIndex - 3) * slidePixelWidth);
-					gsap.set(track, { x: newX + 'px' });
-				}
-				
-				currentDOMIndex--;
-				updateCarousel();
-			};
-
-			prevBtn.addEventListener('click', movePrev);
-			nextBtn.addEventListener('click', moveNext);
-
-			// Store modal data from original slides
-			const modalDataArray = origSlides.map(slide => {
-				const teamMember = slide.querySelector('.team-member');
-				const modalData = teamMember?.querySelector('.team-member__modal-data');
-				
-				if (!modalData) return null;
-				
-				const titleEl = modalData.querySelector('.modal-title');
-				const imageEl = modalData.querySelector('.modal-image');
-				const secondaryImageEl = modalData.querySelector('.modal-secondary-image');
-				const contentEl = modalData.querySelector('.modal-content');
-				
-				if (!titleEl || !imageEl || !contentEl) return null;
-				
-				return {
-					title: titleEl.textContent.trim(),
-					image: imageEl.innerHTML,
-					secondaryImage: secondaryImageEl?.innerHTML || '',
-					content: contentEl.innerHTML
-				};
+			const swiperCenter = new Swiper('#' + carouselId + '-center', {
+				slidesPerView: 'auto',
+				loop: true,
+				loopAdditionalSlides: slideCount,
+				speed: 600,
 			});
+
+			const swiperRight = new Swiper('#' + carouselId + '-right', {
+				slidesPerView: 'auto',
+				spaceBetween: 10,
+				loop: true,
+				loopAdditionalSlides: slideCount,
+				speed: 600,
+			});
+
+			console.log('Swipers initialized:', {
+				left: swiperLeft.slides.length,
+				center: swiperCenter.slides.length,
+				right: swiperRight.slides.length
+			});
+
+			// Set initial positions
+		// Left shows 3 slides before center, so start at slideCount - 3
+		swiperLeft.slideToLoop(slideCount - 3, 0);
+		swiperCenter.slideToLoop(0, 0);
+		swiperRight.slideToLoop(1, 0);
+
+		// Navigation with arrow buttons
+		const prevBtn = carouselEl.querySelector('.team-carousel__arrow--prev');
+		const nextBtn = carouselEl.querySelector('.team-carousel__arrow--next');
+
+			if (prevBtn && nextBtn) {
+				prevBtn.addEventListener('click', () => {
+					console.log('Prev clicked');
+					swiperCenter.slidePrev();
+					swiperLeft.slidePrev();
+					swiperRight.slidePrev();
+				});
+
+				nextBtn.addEventListener('click', () => {
+					console.log('Next clicked');
+					swiperCenter.slideNext();
+					swiperLeft.slideNext();
+					swiperRight.slideNext();
+				});
+			} else {
+				console.error('Buttons not found');
+			}
 
 			// Modal functionality
 			const modal = document.getElementById('team-modal-<?php echo esc_js( $block_id ); ?>');
 			const modalBody = modal?.querySelector('.team-modal__body');
-		const modalOverlay = modal?.querySelector('.team-modal__overlay');
+			const modalOverlay = modal?.querySelector('.team-modal__overlay');
 
-		if (!modal || !modalBody || !modalOverlay) {
-				console.error('[Carousel] Modal elements missing');
+			if (!modal || !modalBody || !modalOverlay) {
+				console.error('[Team Carousel] Modal elements missing');
 				return;
 			}
 
-			// Function to attach modal handlers to slides
-			function attachModalHandlers(slides, startIdx = 0, endIdx = null) {
-				const end = endIdx ?? slides.length;
-				
-				for (let i = startIdx; i < end; i++) {
-					const slide = slides[i];
-					const teamMember = slide.querySelector('.team-member');
+			// Click handler for center slides
+			swiperCenter.slides.forEach((slide, index) => {
+				slide.addEventListener('click', function() {
+					if (!slide.classList.contains('swiper-slide-active')) return;
 					
-					if (teamMember && !teamMember.dataset.hasHandler) {
-						teamMember.dataset.hasHandler = 'true';
-						teamMember.addEventListener('click', function() {
-							const currentSlides = track.querySelectorAll('.carousel-slide');
-							const slideIndex = Array.from(currentSlides).indexOf(this.closest('.carousel-slide'));
-							
-							if (slideIndex !== currentDOMIndex) return;
-							
-							const originalIdx = parseInt(this.closest('.carousel-slide').dataset.originalIdx, 10);
-							const data = modalDataArray[originalIdx];
-							
-							if (!data) return;
-							
-							modalBody.innerHTML = `
-								<div class="team-modal__image">${data.image}</div>
-								${data.secondaryImage ? `<div class="team-modal__secondary-image">${data.secondaryImage}</div>` : ''}
-								<div class="team-modal__text">
-									<div class="content">${data.content}</div>								<button class="team-modal__close" aria-label="Close modal">&times;</button>								</div>
-							`;
-							
-							modal.style.display = 'flex';
-							document.body.style.overflow = 'hidden';
-						});
-					}
-				}
-			}
-
-			// Attach handlers to initial slides
-			attachModalHandlers(allSlides);
+					const modalData = slide.querySelector('.team-member__modal-data');
+					if (!modalData) return;
+					
+					const titleEl = modalData.querySelector('.modal-title');
+					const imageEl = modalData.querySelector('.modal-image');
+					const secondaryImageEl = modalData.querySelector('.modal-secondary-image');
+					const contentEl = modalData.querySelector('.modal-content');
+					
+					if (!titleEl || !imageEl || !contentEl) return;
+					
+					modalBody.innerHTML = `
+						<div class="team-modal__image">${imageEl.innerHTML}</div>
+						${secondaryImageEl?.innerHTML ? `<div class="team-modal__secondary-image">${secondaryImageEl.innerHTML}</div>` : ''}
+						<div class="team-modal__text">
+							<div class="content">${contentEl.innerHTML}</div>
+							<button class="team-modal__close" aria-label="Close modal">&times;</button>
+						</div>
+					`;
+					
+					modal.style.display = 'flex';
+					document.body.style.overflow = 'hidden';
+				});
+			});
 
 			function closeModal() {
 				modal.style.display = 'none';
 				document.body.style.overflow = '';
 			}
 
-modal.addEventListener('click', function(e) {
-			if (e.target.classList.contains('team-modal__close')) {
-				closeModal();
-			}
-		});
-			modalOverlay.addEventListener('click', closeModal);
-			
-			// Handle window resize
-			let resizeTimeout;
-			window.addEventListener('resize', () => {
-				clearTimeout(resizeTimeout);
-				resizeTimeout = setTimeout(() => {
-					slidePixelWidth = 0;
-					updateCarousel(false);
-				}, 250);
+			modal.addEventListener('click', function(e) {
+				if (e.target.classList.contains('team-modal__close')) {
+					closeModal();
+				}
 			});
-
-			updateCarousel(false);
+			modalOverlay.addEventListener('click', closeModal);
 		})();
 		</script>
 		<?php
