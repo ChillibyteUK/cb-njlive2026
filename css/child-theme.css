@@ -22842,9 +22842,9 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
 .team-carousel__arrows {
   position: absolute;
   top: 50%;
-  left: 43vw;
+  left: 41vw;
   transform: translateY(-50%);
-  width: 43vw;
+  width: 46vw;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
