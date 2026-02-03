@@ -34,7 +34,7 @@ while ( $team_members->have_posts() ) {
 		'title'          => get_the_title(),
 		'job_title'      => get_field( 'role', $post_id ) ?? '',
 		'content'        => get_the_content(),
-		'image'          => has_post_thumbnail() ? get_the_post_thumbnail( $post_id, 'full' ) : '',
+		'image'          => has_post_thumbnail() ? get_the_post_thumbnail( $post_id, 'full', array( 'srcset' => '' ) ) : '',
 		'secondary_image_id' => get_field( 'secondary_image', $post_id ),
 	);
 }
