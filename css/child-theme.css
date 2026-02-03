@@ -22737,13 +22737,13 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   opacity: 0.6;
 }
 .team-carousel__left .swiper-slide img {
+  border-radius: 0 2rem 0 0;
   width: 100%;
   height: auto;
   aspect-ratio: 3/4;
   -o-object-fit: cover;
   object-fit: cover;
   display: block;
-  border-radius: 0 2rem 0 0;
 }
 
 .team-carousel__center {
@@ -22759,8 +22759,15 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   width: 40vw !important;
   cursor: pointer;
 }
-.team-carousel__center .swiper-slide-active img {
+.team-carousel__center .swiper-slide-active .team-member__image-container {
   border-radius: 0 6rem 0 0;
+  overflow: hidden;
+}
+.team-carousel__center .swiper-slide-active img {
+  transition: transform 0.6s ease;
+}
+.team-carousel__center .swiper-slide-active:hover img {
+  transform: scale(1.05);
 }
 
 .team-member__image-container {
