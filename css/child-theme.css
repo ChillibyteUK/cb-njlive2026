@@ -22714,7 +22714,7 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 10px;
   padding: 4rem 0;
   overflow: hidden;
 }
@@ -22760,7 +22760,7 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   cursor: pointer;
 }
 .team-carousel__center .swiper-slide-active img {
-  border-radius: 0 4rem 0 0;
+  border-radius: 0 6rem 0 0;
 }
 
 .team-member__image-container {
@@ -22772,7 +22772,7 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   grid-area: stack;
   width: 100%;
   height: auto;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/5;
   -o-object-fit: cover;
   object-fit: cover;
   display: block;
