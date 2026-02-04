@@ -8,6 +8,25 @@
     justify-content: flex-end;
 }
 
+// Override Gravity Forms button styles with fancy-button
+.gform_wrapper .gform_footer button.gform_button.fancy-button {
+    // Reset Gravity Forms default styles
+    all: unset;
+    
+    // Apply fancy-button base styles
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 2.5rem !important;
+    contain: layout;
+    cursor: pointer;
+    
+    span {
+        border: 2px solid var(--col-white) !important;
+        color: var(--col-white) !important;
+    }
+}
+
 .gform_wrapper {
     input[type="text"],
     input[type="tel"],

@@ -22151,6 +22151,20 @@ header .current-menu-item .nav-link {
   justify-content: flex-end;
 }
 
+.gform_wrapper .gform_footer button.gform_button.fancy-button {
+  all: unset;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 2.5rem !important;
+  contain: layout;
+  cursor: pointer;
+}
+.gform_wrapper .gform_footer button.gform_button.fancy-button span {
+  border: 2px solid var(--col-white) !important;
+  color: var(--col-white) !important;
+}
+
 .gform_wrapper input[type=text],
 .gform_wrapper input[type=tel],
 .gform_wrapper input[type=email],

@@ -7049,12 +7049,25 @@
 
 	// Transform Gravity Forms buttons to fancy-button markup
 	function transformGravityFormsButtons() {
-	  const gformButtons = document.querySelectorAll('.gform_button');
-	  gformButtons.forEach(button => {
-	    // Get the button text
-	    const buttonText = button.textContent.trim();
+	  const gformButtons = document.querySelectorAll('input.gform_button[type="submit"]');
+	  gformButtons.forEach(input => {
+	    // Skip if already transformed
+	    if (input.dataset.transformed) return;
 
-	    // Create the new structure
+	    // Get the button text from value attribute
+	    const buttonText = input.value || 'Submit';
+
+	    // Create a new button element
+	    const button = document.createElement('button');
+	    button.type = 'submit';
+	    button.className = 'gform_button button fancy-button';
+
+	    // Copy important attributes
+	    if (input.id) button.id = input.id;
+	    if (input.onclick) button.onclick = input.onclick;
+	    if (input.dataset.submissionType) button.dataset.submissionType = input.dataset.submissionType;
+
+	    // Create the fancy-button structure
 	    const leftIcon = document.createElement('span');
 	    leftIcon.className = 'fancy-button__icon fancy-button__icon--left';
 	    leftIcon.innerHTML = '<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>';
@@ -7065,14 +7078,14 @@
 	    rightIcon.className = 'fancy-button__icon fancy-button__icon--right';
 	    rightIcon.innerHTML = '<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>';
 
-	    // Clear button content and add new structure
-	    button.textContent = '';
+	    // Add spans to button
 	    button.appendChild(leftIcon);
 	    button.appendChild(label);
 	    button.appendChild(rightIcon);
 
-	    // Add fancy-button class
-	    button.classList.add('fancy-button');
+	    // Replace the input with the button
+	    input.parentNode.replaceChild(button, input);
+	    button.dataset.transformed = 'true';
 	  });
 	}
 
@@ -7080,9 +7093,11 @@
 	document.addEventListener('DOMContentLoaded', transformGravityFormsButtons);
 
 	// Hook into Gravity Forms post-render event for AJAX forms
-	jQuery(document).on('gform_post_render', function () {
-	  transformGravityFormsButtons();
-	});
+	if (typeof jQuery !== 'undefined') {
+	  jQuery(document).on('gform_post_render', function () {
+	    transformGravityFormsButtons();
+	  });
+	}
 
 	exports.Alert = Alert;
 	exports.Button = button;
