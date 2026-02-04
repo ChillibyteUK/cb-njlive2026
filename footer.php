@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 		<div class="row">
 			<div class="col-md-7 order-md-2">
 				<div class="footer__anim text-center">
-					<video autoplay loop muted playsinline style="width: 600px; height: 600px;">
+					<video autoplay loop muted playsinline style="width: 100%; height: 100%;">
 						<source src="<?= get_stylesheet_directory_uri(); ?>/anim/NJ_SpeechBubble_833x833.webm" type="video/webm">
 					</video>
 				</div>

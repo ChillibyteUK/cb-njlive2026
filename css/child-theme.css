@@ -22107,7 +22107,7 @@ header .current-menu-item .nav-link {
   margin-top: -3px;
 }
 .footer__title {
-  width: 730px;
+  width: min(730px, 75vw);
   font-size: clamp(50px, 10vw, 130px);
   line-height: 1;
   display: flex;
