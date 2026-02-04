@@ -18,30 +18,12 @@ defined( 'ABSPATH' ) || exit;
 				<h1 class="word-slide-effect"><?= esc_html( get_field( 'title' ) ); ?></h1>
 				</div>
 				<div class="col-lg-4 d-flex flex-column justify-content-start align-items-center gap-2">
-					<canvas id="dotlottie-canvas" style="width: 300px; height: 300px;"></canvas>
+				<video autoplay loop muted playsinline style="width: 400px; height: 400px;">
+					<source src="<?= get_stylesheet_directory_uri(); ?>/anim/NJ_BlocksExpand_698x698.webm" type="video/webm">
+				</video>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 <a id="content" class="anchor"></a>
-<?php
-
-add_action(
-	'wp_footer',
-	function () {
-		?>
-<script type="module">
-	import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
-
-	new DotLottie({
-		autoplay: true,
-		loop: true,
-		canvas: document.getElementById("dotlottie-canvas"),
-		src: "<?= get_stylesheet_directory_uri(); ?>/js/DiamondJson.json",
-	});
-</script>
-		<?php
-	},
-	99
-);
