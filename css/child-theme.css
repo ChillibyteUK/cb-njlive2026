@@ -22161,8 +22161,9 @@ header .current-menu-item .nav-link {
   cursor: pointer;
 }
 .gform_wrapper .gform_footer button.gform_button.fancy-button span {
-  border: 2px solid var(--col-white) !important;
+  border: 2px solid var(--col-dark) !important;
   color: var(--col-white) !important;
+  background-color: var(--col-dark) !important;
 }
 
 .gform_wrapper input[type=text],

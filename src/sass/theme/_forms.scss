@@ -22,8 +22,9 @@
     cursor: pointer;
     
     span {
-        border: 2px solid var(--col-white) !important;
+        border: 2px solid var(--col-dark) !important;
         color: var(--col-white) !important;
+        background-color: var(--col-dark) !important;
     }
 }
 
