@@ -10,22 +10,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-add_action(
-	'wp_footer',
-	function () {
-		?>
-<script type="module">
-import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
-new DotLottie({
-	autoplay: true,
-	loop: true,
-	canvas: document.getElementById("footer-dotlottie-canvas"),
-	src: "<?= get_stylesheet_directory_uri(); ?>/js/DiamondJson.json",
-});
-</script>
-		<?php
-	}
-);
 ?>
 <div id="footer-top"></div>
 
@@ -38,7 +22,9 @@ new DotLottie({
 		<div class="row">
 			<div class="col-md-6 order-md-2">
 				<div class="footer__anim text-center">
-					<canvas id="footer-dotlottie-canvas" style="width: 300px; height: 300px;"></canvas>
+					<video autoplay loop muted playsinline style="width: 400px; height: 400px;">
+						<source src="<?= get_stylesheet_directory_uri(); ?>/anim/NJ_SpeechBubble_833x833.webm" type="video/webm">
+					</video>
 				</div>
 			</div>
 			<div class="col-md-6 order-md-1 footer__contact my-auto">

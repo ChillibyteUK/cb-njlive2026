@@ -9,6 +9,31 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
+
+add_action(
+	'wp_footer',
+	function () {
+		?>
+<script type="module">
+import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+const navLottie = new DotLottie({
+	autoplay: true,
+	loop: false,
+	canvas: document.getElementById("nav-dotlottie-canvas"),
+	src: "<?= get_stylesheet_directory_uri(); ?>/anim/NJ_Logo_140x140.json",
+});
+
+const navBrand = document.querySelector('.navbar-brand');
+if (navBrand) {
+	navBrand.addEventListener('mouseenter', () => {
+		navLottie.stop();
+		navLottie.play();
+	});
+}
+</script>
+		<?php
+	}
+);
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -108,7 +133,10 @@ do_action( 'wp_body_open' );
         <nav id="navbar" class="navbar d-block p-0 py-3" aria-label="Primary navigation">
             <div class="container-fluid d-block d-lg-flex">
                 <div class="d-flex w-100 justify-content-between align-items-center px-2">
-                    <a href="/" class="navbar-brand" rel="home" aria-label="NJ Live home"></a>
+                    <a href="/" class="navbar-brand" rel="home" aria-label="NJ Live home">
+						<canvas id="nav-dotlottie-canvas" style="width: 70px; height: 70px;"></canvas>
+					</a>
+					
 					<span class="d-flex align-items-center gap-4">
 						<a href="/connect/"
 							target="_self"

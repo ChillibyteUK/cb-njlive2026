@@ -21957,12 +21957,8 @@ b,
 }
 
 header .navbar-brand {
-  background-image: url(../img/nj-logo.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top left;
-  aspect-ratio: 113/139;
-  width: 64px;
+  aspect-ratio: 1/1;
+  width: 70px;
   margin-right: 0;
 }
 header .navbar-toggler {
