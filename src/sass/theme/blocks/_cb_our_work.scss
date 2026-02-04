@@ -1,6 +1,5 @@
 .our-work,
 .work-index {
-    background-color: var(--col-dark);
     color: var(--col-white);
     isolation: isolate;
     transform: none !important;
@@ -17,6 +16,9 @@
     // * {
     //   background-color: transparent !important;
     // }
+}
+.our-work {
+  background-color: var(--col-dark);
 }
 
 .work-wrapper {

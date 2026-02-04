@@ -22373,7 +22373,6 @@ h2.services-heading-text, .services-heading-text.h2 {
 
 .our-work,
 .work-index {
-  background-color: var(--col-dark);
   color: var(--col-white);
   isolation: isolate;
   transform: none !important;
@@ -22385,6 +22384,10 @@ h2.services-heading-text, .services-heading-text.h2 {
 .work-index::before,
 .work-index::after {
   display: none !important;
+}
+
+.our-work {
+  background-color: var(--col-dark);
 }
 
 .work-wrapper {
