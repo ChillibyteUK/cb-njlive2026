@@ -24,13 +24,48 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 		</div>
 		<div class="container">
-			<div class="ratio ratio-16x9 lite-vimeo w-100 mb-5" style="position: relative;">
-				<div style="position: absolute; inset: 0; background: #000; z-index: -1;"></div>
-	            <iframe src="https://player.vimeo.com/video/1108035268?autoplay=1&amp;loop=1&amp;muted=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;dnt=1&amp;color=000000" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Timber Rooms" spellcheck="false" style="background: #000; position: relative; z-index: 1;"></iframe>
+			<?php
+			$showreel = get_field( 'showreel' );
+			if ( $showreel ) {
+				?>
+			<div class="ratio ratio-16x9 w-100 mb-5 grow-showreel" style="position: relative; background: #000;">
+				<video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+					<source src="<?= esc_url( wp_get_attachment_url( $showreel ) ); ?>" type="video/webm">
+				</video>
+				<button class="showreel-sound-toggle" style="position: absolute; bottom: 20px; right: 20px; padding: 12px 24px; background: rgba(0, 0, 0, 0.8); color: white; cursor: pointer; opacity: 0; transition: opacity 0.3s ease; z-index: 10;" aria-label="Toggle sound">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+						<path class="sound-off" d="M11 5L6 9H2v6h4l5 4V5z"></path>
+						<line class="sound-off" x1="23" y1="9" x2="17" y2="15"></line>
+						<line class="sound-off" x1="17" y1="9" x2="23" y2="15"></line>
+						<path class="sound-on" d="M11 5L6 9H2v6h4l5 4V5z" style="display: none;"></path>
+						<path class="sound-on" d="M19.07 4.93a10 10 0 0 1 0 14.14" style="display: none;"></path>
+						<path class="sound-on" d="M15.54 8.46a5 5 0 0 1 0 7.07" style="display: none;"></path>
+					</svg>
+				</button>
 			</div>
+				<?php
+			}
+			?>
 			<div class="row g-5">
+				<?php
+				$q = new WP_Query(
+					array(
+						'post_type'      => 'casestudy',
+						'posts_per_page' => 2,
+						'orderby'        => 'date',
+						'order'          => 'DESC',
+					)
+				);
+				if ( $q->have_posts() ) {
+					while ( $q->have_posts() ) {
+						$q->the_post();
+						$thumb = get_field( 'thumbnail_video', get_the_ID() );
+						$title = get_field( 'short_title', get_the_ID() ) ? get_field( 'short_title', get_the_ID() ) : get_the_title();
+						$year = get_field( 'year', get_the_ID() );
+						$text = get_field( 'card_text', get_the_ID() );
+						?>
 				<div class="col-md-6">
-					<div class="our-work-card">
+					<a class="our-work-card" href="<?= esc_url( get_permalink() ); ?>">
 						<div class="our-work-card__header">
 							<div class="our-work-card__header-title">
 								<div class="our-work-card__header-arrow">
@@ -38,49 +73,35 @@ defined( 'ABSPATH' ) || exit;
 										<path class="cls-1" d="M97.11,4.24L189.51,96.63 97.11,189.03M189.51,96.63H0.51" stroke="currentcolor" stroke-width="12" stroke-miterlimit="10"/>
 									</svg>
 								</div>
-								Sega Gamescom Consumer Booth
+								<?= esc_html( $title ); ?>
 							</div>
 							<div class="our-work-card__header-year">
-								2025
+								<?= esc_html( $year ); ?>
 							</div>
 						</div>
 						<div class="our-work-card__body">
 							<div class="our-work-card__body-front">
-								video loop
+								<?php
+								if ( $thumb ) {
+									?>
+									<video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+										<source src="<?= esc_url( wp_get_attachment_url( $thumb ) ); ?>" type="video/webm">
+									</video>
+									<?php
+								}
+								?>
 							</div>
 							<div class="our-work-card__body-back">
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum fuga porro aut rem a, odit, cupiditate amet necessitatibus.
+								<?= esc_html( $text ); ?>
 							</div>
 						</div>
-					</div>
+					</a>
 				</div>
-				<div class="col-md-6">
-					<div class="our-work-card">
-						<div class="our-work-card__header">
-							<div class="our-work-card__header-title">
-								<div class="our-work-card__header-arrow">
-									<svg width="26" height="21" viewBox="0 0 198 194" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path class="cls-1" d="M97.11,4.24L189.51,96.63 97.11,189.03M189.51,96.63H0.51" stroke="currentcolor" stroke-width="12" stroke-miterlimit="10"/>
-									</svg>
-								</div>
-								Sega Gamescom Consumer Booth
-							</div>
-							<div class="our-work-card__header-year">
-								2025
-							</div>
-						</div>
-						<div class="our-work-card__body">
-							<div class="our-work-card__body-front">
-								video loop
-							</div>
-							<div class="our-work-card__body-back">
-								<span>
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum fuga porro aut rem a, odit, cupiditate amet necessitatibus.
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
+						<?php
+					}
+					wp_reset_postdata();
+				}
+				?>
 			</div>
 		</div>
 		<div class="pt-5 text-center">
@@ -170,6 +191,58 @@ function initWorkHeading() {
 				gsap.set(arrow, { rotation: gsap.utils.mapRange(0, 0.2, 0, -90, clamped) });
 			}
 		});
+	}
+
+	// Showreel grow animation
+	const showreelContainer = wrapper?.querySelector('.grow-showreel');
+	if (showreelContainer) {
+		gsap.fromTo(showreelContainer, 
+			{
+				scale: 0.7,
+			},
+			{
+				scale: 1,
+				ease: "none",
+				scrollTrigger: {
+					trigger: showreelContainer,
+					start: "top bottom",
+					end: "center center",
+					scrub: 1,
+				}
+			}
+		);
+	}
+
+	// Showreel sound toggle
+	if (showreelContainer) {
+		const video = showreelContainer.querySelector('video');
+		const soundToggle = showreelContainer.querySelector('.showreel-sound-toggle');
+		
+		if (video && soundToggle) {
+			showreelContainer.addEventListener('mouseenter', () => {
+				soundToggle.style.opacity = '1';
+			});
+			
+			showreelContainer.addEventListener('mouseleave', () => {
+				soundToggle.style.opacity = '0';
+			});
+			
+			soundToggle.addEventListener('click', (e) => {
+				e.preventDefault();
+				e.stopPropagation();
+				video.muted = !video.muted;
+				const soundOff = soundToggle.querySelectorAll('.sound-off');
+				const soundOn = soundToggle.querySelectorAll('.sound-on');
+				
+				if (video.muted) {
+					soundOff.forEach(el => el.style.display = '');
+					soundOn.forEach(el => el.style.display = 'none');
+				} else {
+					soundOff.forEach(el => el.style.display = 'none');
+					soundOn.forEach(el => el.style.display = '');
+				}
+			});
+		}
 	}
 }
 

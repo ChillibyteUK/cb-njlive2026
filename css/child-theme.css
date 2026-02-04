@@ -22463,6 +22463,8 @@ h2.work-heading-text, .work-heading-text.h2 {
 }
 
 .our-work-card {
+  display: block;
+  text-decoration: none !important;
   background-color: var(--col-black);
   border: 1px solid var(--col-white);
   border-radius: 1rem;
@@ -22508,7 +22510,7 @@ h2.work-heading-text, .work-heading-text.h2 {
   top: 0;
   left: 0;
   transition: opacity 0.3s ease-in-out;
-  background-color: hsl(var(--col-black-hsl)/0.9);
+  background-color: hsla(194, 44%, 10%, 0.8);
   opacity: 0;
   display: grid;
   place-content: center;

@@ -102,6 +102,8 @@ h2.work-heading-text {
 
 
 .our-work-card {
+  display: block;
+  text-decoration: none !important;
   background-color: var(--col-black);
   .our-work-card__header-arrow {
     transition: transform 0.3s ease-in-out;
@@ -147,7 +149,7 @@ h2.work-heading-text {
     top: 0;
     left: 0;
     transition: opacity 0.3s ease-in-out;
-    background-color: hsl( var(--col-black-hsl) / 0.9 );
+    background-color: hsl( 194 44% 10% / 0.8 );
     opacity: 0;
     display: grid;
     place-content: center;
