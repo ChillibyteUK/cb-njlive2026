@@ -22178,10 +22178,13 @@ header .current-menu-item .nav-link {
 .gform_wrapper input[type=tel],
 .gform_wrapper input[type=email],
 .gform_wrapper textarea {
-  border-style: solid;
-  border-radius: 0.25rem;
-  border-color: var(--col-blue-200);
-  border-width: 2px;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 1px solid var(--col-dark) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
 }
 
 .case-study-single .arrow-heading {
