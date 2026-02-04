@@ -18,8 +18,8 @@ defined( 'ABSPATH' ) || exit;
 				<h1 class="word-slide-effect"><?= esc_html( get_field( 'title' ) ); ?></h1>
 				</div>
 				<div class="col-lg-4 d-flex flex-column justify-content-start align-items-center gap-2">
-				<video autoplay loop muted playsinline style="width: 400px; height: 400px;">
-					<source src="<?= get_stylesheet_directory_uri(); ?>/anim/NJ_BlocksExpand_698x698.webm" type="video/webm">
+				<video autoplay muted playsinline style="width: 400px; height: 400px;">
+					<source src="<?= get_stylesheet_directory_uri(); ?>/anim/NJ_BlocksExpand_698x698_v2.webm" type="video/webm">
 				</video>
 				</div>
 			</div>
