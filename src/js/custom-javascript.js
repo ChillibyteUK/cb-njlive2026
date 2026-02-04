@@ -28,11 +28,12 @@ function initArrowHeadings() {
 			// For other sections, use standard top trigger
 			const isPageHero = section.classList.contains('page-hero');
 			const isCaseStudyArrow = section.classList.contains('arrow-heading') && document.querySelector('.case-study-single');
-			const startTrigger = (isPageHero || isCaseStudyArrow) ? 'bottom 30%' : 'top 80%';
+			const startTrigger = (isPageHero || isCaseStudyArrow) ? 'top top' : 'top 80%';
 			
 			ScrollTrigger.create({
 				trigger: section,
 				start: startTrigger,
+				end: 'bottom top',
 				onUpdate: (self) => {
 					const clamped = gsap.utils.clamp(0, 0.2, self.progress);
 					gsap.set(arrow, { rotation: gsap.utils.mapRange(0, 0.2, 0, -90, clamped) });
