@@ -6888,9 +6888,9 @@
 	// Arrow heading animation - works with multiple instances
 	function initArrowHeadings() {
 	  gsap.registerPlugin(ScrollTrigger);
-	  const sections = document.querySelectorAll('section.arrow-heading, section.page-hero');
+	  const sections = document.querySelectorAll('section.arrow-heading, section.page-hero, section.challenge');
 	  sections.forEach(section => {
-	    const arrow = section.querySelector('.arrow-heading-arrow');
+	    const arrow = section.querySelector('.arrow-heading-arrow, .challenge-arrow');
 	    if (arrow) {
 	      // For page-hero or case-study arrow-heading (top of page), use bottom as trigger to animate later in scroll
 	      // For other sections, use standard top trigger
