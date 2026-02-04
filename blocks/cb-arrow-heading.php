@@ -8,8 +8,11 @@
 defined( 'ABSPATH' ) || exit;
 
 $width = get_field( 'width_ch' );
+
+$id = $block['anchor'] ?? $block['id'];
+
 ?>
-<section class="arrow-heading" style="--_heading-width-ch: <?= esc_attr( $width ); ?>ch;">
+<section class="arrow-heading" id="<?php echo esc_attr( $id ); ?>" style="--_heading-width-ch: <?= esc_attr( $width ); ?>ch;">
     <div class="container">
         <h2 class="arrow-heading-text d-flex flex-column lh-tightest heading-word-slide">
             <span class="text-start"><?= esc_html( get_field( 'word_one' ) ); ?></span>
