@@ -23196,6 +23196,50 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   height: auto;
 }
 
+.contact-hero {
+  position: relative;
+  min-height: calc(100svh - var(--h-top));
+  overflow: hidden;
+  isolation: isolate;
+}
+.contact-hero .underlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url(../img/pattern.svg);
+  z-index: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.contact-hero .content {
+  z-index: 1;
+  margin-inline: auto;
+}
+.contact-hero h1, .contact-hero .h1 {
+  font-size: var(--fs-700);
+  font-weight: var(--fw-medium);
+  color: var(--col-slate);
+  line-height: var(--lh-tight);
+  letter-spacing: 0;
+  min-height: 1.2em;
+  max-width: 15ch;
+  margin-bottom: 2rem;
+}
+.contact-hero h1.type-writer, .contact-hero .type-writer.h1 {
+  display: block;
+}
+.contact-hero .word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.contact-hero .word-inner {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 body {
   background-color: var(--col-white);
 }
