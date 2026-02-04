@@ -23243,6 +23243,7 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
 .large-testimonial {
   background-color: var(--col-dark);
   color: var(--col-white);
+  border-bottom: 10px solid var(--col-mint);
 }
 .large-testimonial__quote {
   text-align: center;
