@@ -7047,6 +7047,43 @@
 	}
 	window.addEventListener('load', initHeadingWordAnimations);
 
+	// Transform Gravity Forms buttons to fancy-button markup
+	function transformGravityFormsButtons() {
+	  const gformButtons = document.querySelectorAll('.gform_button');
+	  gformButtons.forEach(button => {
+	    // Get the button text
+	    const buttonText = button.textContent.trim();
+
+	    // Create the new structure
+	    const leftIcon = document.createElement('span');
+	    leftIcon.className = 'fancy-button__icon fancy-button__icon--left';
+	    leftIcon.innerHTML = '<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>';
+	    const label = document.createElement('span');
+	    label.className = 'fancy-button__label';
+	    label.textContent = buttonText;
+	    const rightIcon = document.createElement('span');
+	    rightIcon.className = 'fancy-button__icon fancy-button__icon--right';
+	    rightIcon.innerHTML = '<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>';
+
+	    // Clear button content and add new structure
+	    button.textContent = '';
+	    button.appendChild(leftIcon);
+	    button.appendChild(label);
+	    button.appendChild(rightIcon);
+
+	    // Add fancy-button class
+	    button.classList.add('fancy-button');
+	  });
+	}
+
+	// Run on DOM ready and after Gravity Forms AJAX submissions
+	document.addEventListener('DOMContentLoaded', transformGravityFormsButtons);
+
+	// Hook into Gravity Forms post-render event for AJAX forms
+	jQuery(document).on('gform_post_render', function () {
+	  transformGravityFormsButtons();
+	});
+
 	exports.Alert = Alert;
 	exports.Button = button;
 	exports.Carousel = carousel;

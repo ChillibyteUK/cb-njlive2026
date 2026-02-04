@@ -8,11 +8,6 @@
     justify-content: flex-end;
 }
 
-.gform_button {
-    @extend .btn;
-    @extend .btn-primary;
-}
-
 .gform_wrapper {
     input[type="text"],
     input[type="tel"],
