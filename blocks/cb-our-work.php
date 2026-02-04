@@ -92,7 +92,7 @@ defined( 'ABSPATH' ) || exit;
 								?>
 							</div>
 							<div class="our-work-card__body-back">
-								<?= esc_html( $text ); ?>
+								<span><?= esc_html( $text ); ?></span>
 							</div>
 						</div>
 					</a>
