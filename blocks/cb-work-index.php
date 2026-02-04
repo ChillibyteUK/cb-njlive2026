@@ -76,3 +76,39 @@ defined( 'ABSPATH' ) || exit;
         </div>
     </div>
 </section>
+<?php
+add_action(
+	'wp_footer',
+	function () {
+		?>
+<script>
+window.addEventListener("load", function() {
+	if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+	
+	gsap.registerPlugin(ScrollTrigger);
+	
+	const workCards = document.querySelectorAll('.work-index .our-work-card');
+	
+	workCards.forEach((card) => {
+		gsap.fromTo(card, 
+			{
+				scale: 0.7,
+			},
+			{
+				scale: 1,
+				ease: "none",
+				scrollTrigger: {
+					trigger: card,
+					start: "top bottom",
+					end: "center center",
+					scrub: 1,
+				}
+			}
+		);
+	});
+});
+</script>
+		<?php
+	},
+	9999
+);
