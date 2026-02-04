@@ -15,10 +15,9 @@ defined( 'ABSPATH' ) || exit;
 		<div class="container h-100 d-flex flex-column align-items-center">
 			<div class="row m-auto justify-content-center align-items-center">
 				<div class="col-lg-6 mb-5">
-                    <h1 class="word-slide-effect">Let's create something extraordinary!</h1>
+                    <h1 class="word-slide-effect"><?= esc_html( get_field( 'title' ) ); ?></h1>
                     <div class="contact-hero__content">
-                        <p>Whether you're looking to launch a game-changing campaign or create an immersive gaming experience that captivates your audience. We're here to bring your vision to life.</p>
-                        <p>Get in touch with our team to discuss your next project. We're ready to push boundaries and set new benchmarks together.</p>
+                        <?= wp_kses_post( get_field( 'intro' ) ); ?>
                     </div>
 				</div>
 				<div class="col-lg-6 d-flex flex-column justify-content-start align-items-center gap-2">

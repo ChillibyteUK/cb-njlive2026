@@ -1,44 +1,90 @@
 {
-  "key": "group_cb_contact_hero",
-  "title": "CB Contact Hero",
-  "fields": [
-    {
-      "key": "field_cb_contact_hero",
-      "label": "CB Contact Hero",
-      "name": "",
-      "type": "message",
-      "instructions": "",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "default_value": "",
-      "placeholder": "",
-      "prepend": "",
-      "append": "",
-      "maxlength": ""
-    }
-  ],
-  "location": [
-    [
-      {
-        "param": "block",
-        "operator": "==",
-        "value": "acf/cb-contact-hero"
-      }
-    ]
-  ],
-  "menu_order": 0,
-  "position": "normal",
-  "style": "default",
-  "label_placement": "top",
-  "instruction_placement": "label",
-  "hide_on_screen": "",
-  "active": true,
-  "description": "",
-  "show_in_rest": 0,
-  "modified": 1770203718
+    "key": "group_cb_contact_hero",
+    "title": "CB Contact Hero",
+    "fields": [
+        {
+            "key": "field_cb_contact_hero",
+            "label": "CB Contact Hero",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "message": "",
+            "esc_html": 0,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_69832c3ad1181",
+            "label": "Title",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69832c42d1182",
+            "label": "Intro",
+            "name": "intro",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/cb-contact-hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1770204240
 }
