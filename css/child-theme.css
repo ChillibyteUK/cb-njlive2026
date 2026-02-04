@@ -22371,7 +22371,8 @@ h2.services-heading-text, .services-heading-text.h2 {
   object-fit: cover;
 }
 
-.our-work {
+.our-work,
+.work-index {
   background-color: var(--col-dark);
   color: var(--col-white);
   isolation: isolate;
@@ -22380,7 +22381,9 @@ h2.services-heading-text, .services-heading-text.h2 {
   position: relative;
   z-index: 999;
 }
-.our-work::before, .our-work::after {
+.our-work::before, .our-work::after,
+.work-index::before,
+.work-index::after {
   display: none !important;
 }
 
