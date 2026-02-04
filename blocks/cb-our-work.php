@@ -244,6 +244,28 @@ function initWorkHeading() {
 			});
 		}
 	}
+
+	// Work cards grow animation
+	const workCards = wrapper?.querySelectorAll('.our-work-card');
+	if (workCards && workCards.length) {
+		workCards.forEach((card) => {
+			gsap.fromTo(card, 
+				{
+					scale: 0.7,
+				},
+				{
+					scale: 1,
+					ease: "none",
+					scrollTrigger: {
+						trigger: card,
+						start: "top bottom",
+						end: "center center",
+						scrub: 1,
+					}
+				}
+			);
+		});
+	}
 }
 
 window.addEventListener("load", initWorkHeading);
