@@ -22107,13 +22107,15 @@ header .current-menu-item .nav-link {
   margin-top: -3px;
 }
 .footer__title {
-  width: 570px;
-  font-size: 100px;
+  width: 730px;
+  font-size: clamp(50px, 10vw, 130px);
   line-height: 1;
   display: flex;
   flex-direction: column;
-  margin-bottom: -3rem;
+  margin-bottom: -7rem;
   margin-inline-start: 1ch;
+  position: relative;
+  z-index: 9;
 }
 .footer__title span:nth-child(2) {
   margin-left: auto;

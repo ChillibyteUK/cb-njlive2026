@@ -20,14 +20,14 @@ defined( 'ABSPATH' ) || exit;
 			<span>STARTED</span>
 		</div>
 		<div class="row">
-			<div class="col-md-6 order-md-2">
+			<div class="col-md-7 order-md-2">
 				<div class="footer__anim text-center">
-					<video autoplay loop muted playsinline style="width: 400px; height: 400px;">
+					<video autoplay loop muted playsinline style="width: 600px; height: 600px;">
 						<source src="<?= get_stylesheet_directory_uri(); ?>/anim/NJ_SpeechBubble_833x833.webm" type="video/webm">
 					</video>
 				</div>
 			</div>
-			<div class="col-md-6 order-md-1 footer__contact my-auto">
+			<div class="col-md-5 order-md-1 footer__contact my-auto">
 				<div><?= do_shortcode( '[contact_email]' ); ?></div>
 				<div><?= do_shortcode( '[contact_phone]' ); ?></div>
 			</div>

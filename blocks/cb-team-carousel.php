@@ -51,7 +51,7 @@ while ( $team_members->have_posts() ) {
 }
 wp_reset_postdata();
 ?>
-
+<a class="anchor" id="team"></a>
 <div class="cb-team-carousel" id="<?php echo esc_attr( $block_id ); ?>">
 	<!-- Left Swiper (inactive slides) -->
 	<div class="team-carousel__left">
