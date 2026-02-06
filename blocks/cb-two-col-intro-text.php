@@ -8,13 +8,13 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<section class="two_col_intro_text">
+<section class="two-col-intro-text">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <h3 class="word-slide-effect" data-delay="0.3" data-stagger="0.15" data-duration="0.8"><?= wp_kses_post( get_field( 'left_text' ) ); ?></h3>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 two-col-intro-text__right">
                 <?= wp_kses_post( get_field( 'right_text' ) ); ?>
             </div>
         </div>

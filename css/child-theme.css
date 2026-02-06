@@ -22241,7 +22241,7 @@ header .current-menu-item .nav-link {
   isolation: isolate;
   top: auto;
   padding: 2rem 0;
-  font-size: 6rem;
+  font-size: 8rem;
   text-transform: uppercase;
   z-index: 10;
   pointer-events: none;
@@ -22647,6 +22647,13 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   width: var(--_heading-width-ch, 10ch);
   font-size: inherit;
   margin: 0;
+}
+
+.two-col-intro-text h3, .two-col-intro-text .h3 {
+  font-size: var(--fs-700);
+}
+.two-col-intro-text__right {
+  font-size: var(--fs-400);
 }
 
 .full-video {

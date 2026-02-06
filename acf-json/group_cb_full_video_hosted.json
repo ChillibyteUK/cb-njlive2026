@@ -1,10 +1,10 @@
 {
-    "key": "group_cb_full_video",
-    "title": "CB Full Video (Vimeo)",
+    "key": "group_cb_full_video_hosted",
+    "title": "CB Full Video (Hosted)",
     "fields": [
         {
-            "key": "field_cb_full_video",
-            "label": "CB Full Video (Vimeo)",
+            "key": "field_cb_full_video_hosted",
+            "label": "CB Full Video (Hosted)",
             "name": "",
             "aria-label": "",
             "type": "message",
@@ -26,11 +26,11 @@
             "new_lines": "wpautop"
         },
         {
-            "key": "field_696658ca51ce8",
-            "label": "Vimeo ID",
-            "name": "vimeo_id",
+            "key": "field_6985f574a87b2",
+            "label": "Video",
+            "name": "video",
             "aria-label": "",
-            "type": "text",
+            "type": "file",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -39,12 +39,12 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "webm",
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -52,7 +52,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cb-full-video"
+                "value": "acf\/cb-full-video-hosted"
             }
         ]
     ],
@@ -65,5 +65,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1768315089
+    "modified": 1770387020
 }
