@@ -81,7 +81,8 @@
             "choices": {
                 "400": "400",
                 "500": "500",
-                "600": "600"
+                "600": "600",
+                "700": "700"
             },
             "default_value": 600,
             "return_format": "value",
@@ -228,5 +229,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1770389954
+    "modified": 1770390551
 }
