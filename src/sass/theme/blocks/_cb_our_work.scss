@@ -111,6 +111,9 @@ h2.work-heading-text {
   background-color: var(--col-black);
   .our-work-card__header-arrow {
     transition: transform 0.3s ease-in-out;
+    color: var(--col-mint);
+    will-change: transform;
+    transform: translateZ(0); // GPU acceleration
   }
   &:hover {
     .our-work-card__header-arrow {

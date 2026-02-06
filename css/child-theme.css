@@ -22076,6 +22076,10 @@ header .current-menu-item .nav-link {
   background-color: var(--col-black);
   color: var(--col-white);
 }
+.footer__anim {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
 .footer .cb {
   content: url(../img/cb.png);
   transition: opacity 0.3s ease;
@@ -22481,6 +22485,9 @@ h2.work-heading-text, .work-heading-text.h2 {
 }
 .our-work-card .our-work-card__header-arrow {
   transition: transform 0.3s ease-in-out;
+  color: var(--col-mint);
+  will-change: transform;
+  transform: translateZ(0);
 }
 .our-work-card:hover .our-work-card__header-arrow {
   transform: rotate(45deg);
@@ -22547,7 +22554,7 @@ h2.work-heading-text, .work-heading-text.h2 {
 }
 
 .accordion-body {
-  padding-bottom: 4rem;
+  padding-bottom: 3rem;
 }
 
 .service-nav-wrapper {

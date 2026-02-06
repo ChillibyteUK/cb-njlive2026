@@ -2,6 +2,10 @@
   background-color: var(--col-black);
   color: var(--col-white);
 
+  &__anim {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
 
   .cb {
     content: url(../img/cb.png);
