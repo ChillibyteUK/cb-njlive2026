@@ -13,8 +13,8 @@
 .services-heading {
   position: sticky;
   top: 0;
-  padding: 2rem 0;
-  font-size: 6rem;
+  padding: 0;
+  font-size: 8rem;
   z-index: 10;
   pointer-events: none;
   will-change: opacity, transform;
@@ -50,7 +50,7 @@ h2.services-heading-text {
 
 .services-heading-arrow {
   flex: 0 0 auto;
-  font-size: 6rem;
+  font-size: 8rem;
   line-height: 1;
   will-change: transform;
   transform: translateZ(0); // GPU acceleration
@@ -72,6 +72,14 @@ h2.services-heading-text {
 .service-card {
   width: 100%;
   border-radius: 0 var(--border-radius-lg) 0 0 !important;
+  .card-title {
+    font-size: var(--fs-800);
+    font-weight: var(--fw-medium);
+  }
+  .card-text {
+    font-size: var(--fs-500);
+    line-height: var(--lh-snug);
+  }
 }
 
 .service-card .card-image {

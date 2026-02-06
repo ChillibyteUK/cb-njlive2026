@@ -37,7 +37,7 @@ defined( 'ABSPATH' ) || exit;
 						<div class="row">
 							<div class="col-md-6 service-card__text">
 								<h3 class="card-title h2 mb-3"><?= esc_html( $card_title ); ?></h3>
-								<p class="card-text"><?= wp_kses_post( $description ); ?></p>
+								<div class="card-text"><?= wp_kses_post( $description ); ?></div>
 								<?php
 								if ( get_sub_field( 'link' ) ) {
 									$link = get_sub_field( 'link' );
@@ -187,8 +187,23 @@ function initServicesPanels() {
 
 		const nextCard = cards[i + 1] || null;
 
-		// Initial state per card
-		gsap.set(cardElement, { scale: 1, opacity: 1, force3D: true });
+		// Initial state per card - start at scale 0.7
+		gsap.set(cardElement, { scale: 0.7, opacity: 1, force3D: true });
+
+		// Grow animation as card enters viewport
+		gsap.fromTo(cardElement,
+			{ scale: 0.7 },
+			{
+				scale: 1,
+				ease: 'none',
+				scrollTrigger: {
+					trigger: card,
+					start: 'top bottom',
+					end: 'top 80px',
+					scrub: 1,
+				}
+			}
+		);
 
 		// Fade/scale out while the next card scrolls in
 		const tl = gsap.timeline({ paused: true, smoothChildTiming: true });

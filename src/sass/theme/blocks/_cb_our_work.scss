@@ -29,8 +29,8 @@
 
 .work-heading {
   position: relative;
-  padding: 2rem 0;
-  font-size: 6rem;
+  padding: 2rem 0 0 0;
+  font-size: 8rem;
   z-index: 10;
   pointer-events: none;
   background-color: transparent;
@@ -62,8 +62,9 @@ h2.work-heading-text {
 
 .work-heading-arrow {
   flex: 0 0 auto;
-  font-size: 6rem;
+  font-size: 8rem;
   line-height: 1;
+  color: var(--col-mint);
 }
 
 // Remove the pseudo-element that creates the white block
@@ -138,7 +139,7 @@ h2.work-heading-text {
     overflow: hidden;
   }
   &__body-front {
-    background-color: steelblue;
+    // background-color: steelblue;
     aspect-ratio: 16 / 9;
     width: 100%;
     position: absolute;

@@ -22211,7 +22211,7 @@ header .current-menu-item .nav-link {
   margin-inline: auto;
 }
 .home-hero h1, .home-hero .h1 {
-  font-size: var(--fs-800);
+  font-size: var(--fs-900);
   color: var(--col-slate);
   line-height: var(--lh-tight);
   letter-spacing: 0;
@@ -22293,8 +22293,8 @@ header .current-menu-item .nav-link {
 .services-heading {
   position: sticky;
   top: 0;
-  padding: 2rem 0;
-  font-size: 6rem;
+  padding: 0;
+  font-size: 8rem;
   z-index: 10;
   pointer-events: none;
   will-change: opacity, transform;
@@ -22329,7 +22329,7 @@ h2.services-heading-text, .services-heading-text.h2 {
 
 .services-heading-arrow {
   flex: 0 0 auto;
-  font-size: 6rem;
+  font-size: 8rem;
   line-height: 1;
   will-change: transform;
   transform: translateZ(0);
@@ -22351,6 +22351,14 @@ h2.services-heading-text, .services-heading-text.h2 {
 .service-card {
   width: 100%;
   border-radius: 0 var(--border-radius-lg) 0 0 !important;
+}
+.service-card .card-title {
+  font-size: var(--fs-800);
+  font-weight: var(--fw-medium);
+}
+.service-card .card-text {
+  font-size: var(--fs-500);
+  line-height: var(--lh-snug);
 }
 
 .service-card .card-image {
@@ -22393,8 +22401,8 @@ h2.services-heading-text, .services-heading-text.h2 {
 
 .work-heading {
   position: relative;
-  padding: 2rem 0;
-  font-size: 6rem;
+  padding: 2rem 0 0 0;
+  font-size: 8rem;
   z-index: 10;
   pointer-events: none;
   background-color: transparent;
@@ -22425,8 +22433,9 @@ h2.work-heading-text, .work-heading-text.h2 {
 
 .work-heading-arrow {
   flex: 0 0 auto;
-  font-size: 6rem;
+  font-size: 8rem;
   line-height: 1;
+  color: var(--col-mint);
 }
 
 .our-work .ratio::before {
@@ -22497,7 +22506,6 @@ h2.work-heading-text, .work-heading-text.h2 {
   overflow: hidden;
 }
 .our-work-card__body-front {
-  background-color: steelblue;
   aspect-ratio: 16/9;
   width: 100%;
   position: absolute;
@@ -22550,7 +22558,7 @@ h2.work-heading-text, .work-heading-text.h2 {
 .service-nav-heading {
   position: relative;
   top: auto;
-  padding: 2rem 0;
+  padding: 0;
   font-size: 6rem;
   z-index: 10;
   pointer-events: none;
@@ -22566,7 +22574,8 @@ h2.work-heading-text, .work-heading-text.h2 {
 h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   flex: 0 0 auto;
   width: 10ch;
-  font-size: inherit;
+  font-size: var(--fs-800);
+  font-weight: var(--fw-medium);
   margin: 0;
 }
 
@@ -22613,8 +22622,8 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
 .arrow-heading {
   position: relative;
   top: auto;
-  padding: 2rem 0;
-  font-size: 6rem;
+  padding: 2rem 0 0 0;
+  font-size: 8rem;
   text-transform: uppercase;
   z-index: 10;
   pointer-events: none;

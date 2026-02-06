@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
 				<video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
 					<source src="<?= esc_url( wp_get_attachment_url( $showreel ) ); ?>" type="video/webm">
 				</video>
-				<button class="showreel-sound-toggle" style="position: absolute; bottom: 20px; right: 20px; padding: 12px 24px; background: rgba(0, 0, 0, 0.8); color: white; cursor: pointer; opacity: 0; transition: opacity 0.3s ease; z-index: 10;" aria-label="Toggle sound">
+				<button class="showreel-sound-toggle" style="position: absolute; bottom: 20px; right: 20px; padding: 12px 24px; background: hsl( 194 44% 10% / 0.8 ); color: white; cursor: pointer; opacity: 0; transition: opacity 0.3s ease; z-index: 10; border: none; will-change: opacity; transform: translateZ(0); backface-visibility: hidden;" aria-label="Toggle sound">
 					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
 						<path class="sound-off" d="M11 5L6 9H2v6h4l5 4V5z"></path>
 						<line class="sound-off" x1="23" y1="9" x2="17" y2="15"></line>
