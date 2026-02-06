@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
             </div>
             <div class="col-md-4">
                 <h2 class="fw-medium">The Solution</h2>
-                <div class="fs-500"><?= wp_kses_post( get_field( 'content' ) ); ?></div>
+                <div class="fs-500 lh-snug"><?= wp_kses_post( get_field( 'content' ) ); ?></div>
             </div>
         </div>
     </div>

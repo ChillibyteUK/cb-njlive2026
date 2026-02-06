@@ -17,7 +17,7 @@ $id = $block['anchor'] ?? $block['id'];
                 <h2 class="challenge-text fw-medium d-flex flex-column lh-tightest heading-word-slide">
                     <span class="text-start">The challenge</span>
                 </h2>
-                <div class="fs-500"><?= wp_kses_post( get_field( 'content' ) ); ?></div>
+                <div class="fs-500 lh-snug"><?= wp_kses_post( get_field( 'content' ) ); ?></div>
             </div>
             <div class="col-md-4 text-end">
                 <span class="challenge-arrow">
