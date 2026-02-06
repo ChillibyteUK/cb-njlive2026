@@ -1,6 +1,6 @@
 .home-hero {
     position: relative;
-    min-height: calc(100svh - var(--h-top));
+    // min-height: calc(100svh - var(--h-top));
     overflow: hidden;
     isolation: isolate;
 
@@ -23,7 +23,7 @@
     h1 {
         font-size: var(--fs-900);
         color: var(--col-slate);
-        line-height: var(--lh-tight);
+        line-height: var(--lh-super-tight);
         letter-spacing: 0;
         min-height: 1.2em; // Reserve space to prevent layout shift
     }

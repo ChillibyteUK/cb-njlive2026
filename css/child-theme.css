@@ -31,6 +31,7 @@
      "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --fw-medium: 500;
   --fw-regular: 400;
+  --lh-super-tight: 0.8;
   --lh-tightest: 1;
   --lh-tight: 1.1;
   --lh-snug: 1.25;
@@ -22195,7 +22196,6 @@ header .current-menu-item .nav-link {
 
 .home-hero {
   position: relative;
-  min-height: calc(100svh - var(--h-top));
   overflow: hidden;
   isolation: isolate;
 }
@@ -22217,7 +22217,7 @@ header .current-menu-item .nav-link {
 .home-hero h1, .home-hero .h1 {
   font-size: var(--fs-900);
   color: var(--col-slate);
-  line-height: var(--lh-tight);
+  line-height: var(--lh-super-tight);
   letter-spacing: 0;
   min-height: 1.2em;
 }
