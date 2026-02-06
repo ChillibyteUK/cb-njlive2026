@@ -7,14 +7,20 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$fsl = 'fs-' . get_field( 'left_size' );
+$fsr = 'fs-' . get_field( 'right_size' );
+
+$fwl = 'fw-' . get_field( 'left_weight' );
+$fwr = 'fw-' . get_field( 'right_weight' );
+
 ?>
 <section class="two-col-intro-text">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h3 class="word-slide-effect" data-delay="0.3" data-stagger="0.15" data-duration="0.8"><?= wp_kses_post( get_field( 'left_text' ) ); ?></h3>
+                <div class="<?= esc_attr( implode( ' ', array( $fsl, $fwl ) ) ); ?> lh-snug word-slide-effect" data-delay="0.3" data-stagger="0.15" data-duration="0.8"><?= wp_kses_post( get_field( 'left_text' ) ); ?></div>
             </div>
-            <div class="col-md-6 two-col-intro-text__right">
+            <div class="<?= esc_attr( implode( ' ', array( $fsr, $fwr ) ) ); ?> lh-snug col-md-6 two-col-intro-text__right">
                 <?= wp_kses_post( get_field( 'right_text' ) ); ?>
             </div>
         </div>

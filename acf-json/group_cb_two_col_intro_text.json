@@ -45,7 +45,7 @@
         },
         {
             "key": "field_696514b2d3b90",
-            "label": "Left Text (h2 animated)",
+            "label": "Left Text (animated)",
             "name": "left_text",
             "aria-label": "",
             "type": "textarea",
@@ -63,6 +63,59 @@
             "rows": "",
             "placeholder": "",
             "new_lines": "br"
+        },
+        {
+            "key": "field_6985fc02e3c7e",
+            "label": "Size",
+            "name": "left_size",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "400": "400",
+                "500": "500",
+                "600": "600"
+            },
+            "default_value": 600,
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_6985ff113b5b3",
+            "label": "Weight",
+            "name": "left_weight",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "regular": "regular",
+                "medium": "medium"
+            },
+            "default_value": "regular",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal",
+            "save_other_choice": 0
         },
         {
             "key": "field_696514cad3b91",
@@ -102,6 +155,59 @@
             "rows": "",
             "placeholder": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_6985fc3218fa1",
+            "label": "Size",
+            "name": "right_size",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "400": "400",
+                "500": "500",
+                "600": "600"
+            },
+            "default_value": 400,
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_698601a13b5b5",
+            "label": "Weight",
+            "name": "right_weight",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "regular": "regular",
+                "medium": "medium"
+            },
+            "default_value": "regular",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -122,5 +228,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1768232632
+    "modified": 1770389954
 }

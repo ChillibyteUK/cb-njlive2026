@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 <section class="service-nav" id="services">
 	<div class="service-nav-wrapper">
         <!-- container for accordion -->
-        <div class="container py-5">
+        <div class="container">
             <div class="accordion">
                 <?php
                 while ( have_rows( 'items' ) ) {

@@ -22649,13 +22649,6 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   margin: 0;
 }
 
-.two-col-intro-text h3, .two-col-intro-text .h3 {
-  font-size: var(--fs-700);
-}
-.two-col-intro-text__right {
-  font-size: var(--fs-400);
-}
-
 .full-video {
   position: relative;
   width: 100%;
