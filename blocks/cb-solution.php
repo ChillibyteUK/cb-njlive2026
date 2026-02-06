@@ -11,10 +11,10 @@ defined( 'ABSPATH' ) || exit;
 <section class="solution py-5 has-light-grey-background-color">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 grow-solution">
+            <div class="col-md-7 grow-solution">
                 <?= wp_get_attachment_image( get_field( 'image' ), 'full' ); ?>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <h2 class="fw-medium">The Solution</h2>
                 <div class="fs-500 lh-snug"><?= wp_kses_post( get_field( 'content' ) ); ?></div>
             </div>
