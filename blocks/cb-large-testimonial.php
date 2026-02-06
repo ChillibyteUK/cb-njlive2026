@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) || exit;
 			?>
 		</div>
 		<?php
-		if ( single( 'casestudy') ) {
+		if ( is_singular( 'casestudy' ) ) {
 			?>
 		<div class="text-center mt-4">
 			<a href="/work/" target="" class="fancy-button">
