@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 			$showreel = get_field( 'showreel' );
 			if ( $showreel ) {
 				?>
-			<div class="ratio ratio-16x9 w-100 mb-5 grow-showreel" style="position: relative; background: #000;">
+			<div class="ratio ratio-16x9 w-100 mb-4 grow-showreel" style="position: relative; background: #000;">
 				<video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
 					<source src="<?= esc_url( wp_get_attachment_url( $showreel ) ); ?>" type="video/webm">
 				</video>
