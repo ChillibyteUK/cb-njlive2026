@@ -134,13 +134,13 @@ do_action( 'wp_body_open' );
             <div class="container-fluid d-block d-lg-flex">
                 <div class="d-flex w-100 justify-content-between align-items-center px-2">
                     <a href="/" class="navbar-brand" rel="home" aria-label="NJ Live home">
-						<canvas id="nav-dotlottie-canvas" style="width: 70px; height: 70px;"></canvas>
+						<canvas id="nav-dotlottie-canvas" style="width: 70px; height: 70px; filter: drop-shadow(0px 0px 2px rgba(255 255 255 / 0.4));"></canvas>
 					</a>
 					
 					<span class="d-flex align-items-center gap-4">
 						<a href="/connect/"
 							target="_self"
-							class="fancy-button fancy-button--dark">
+							class="fancy-button fancy-button--dark" style="filter: drop-shadow(0px 0px 2px rgba(255 255 255 / 0.4));">
 							<span class="fancy-button__icon fancy-button__icon--left">
 								<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>
 							</span>
@@ -151,7 +151,7 @@ do_action( 'wp_body_open' );
 								<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M35.103 27 43 34.897l-7.897 7.896M43 35.071H26" vector-effect="non-scaling-stroke"></path></svg>
 							</span>
 						</a>
-						<button class="navbar-toggler input-button" id="navToggle" data-bs-toggle="collapse" data-bs-target="#primaryNav" type="button" aria-label="Navigation" aria-expanded="false">
+						<button class="navbar-toggler input-button" style="filter: drop-shadow(0px 0px 2px rgba(255 255 255 / 0.4));" id="navToggle" data-bs-toggle="collapse" data-bs-target="#primaryNav" type="button" aria-label="Navigation" aria-expanded="false">
 							<i class="fa fa-navicon"></i>
 						</button>
 					</span>
