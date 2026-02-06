@@ -23333,6 +23333,14 @@ h2.service-nav-heading-text, .service-nav-heading-text.h2 {
   color: var(--col-white);
 }
 
+.single-case-study .our-work-card {
+  color: var(--col-white);
+}
+.single-case-study .our-work-card__header {
+  padding-block: 1rem;
+  font-size: var(--fs-500);
+}
+
 body {
   background-color: var(--col-white);
 }

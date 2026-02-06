@@ -1,0 +1,9 @@
+.single-case-study {
+    .our-work-card {
+        color: var(--col-white);
+        &__header {
+            padding-block: 1rem;
+            font-size: var(--fs-500);
+        }
+    }
+}

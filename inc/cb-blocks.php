@@ -19,6 +19,23 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'cb_single_case_study_feature',
+                'title'           => __( 'CB Single Case Study Feature' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-single-case-study-feature.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'cb_full_video_hosted',
                 'title'           => __( 'CB Full Video (Hosted)' ),
                 'category'        => 'layout',
