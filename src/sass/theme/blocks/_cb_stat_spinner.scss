@@ -24,12 +24,12 @@
 	}
 
 	&__stat {
-        font-size: var(--fs-600);
+        font-size: var(--fs-700);
         @media (min-width:992px) {
-            font-size: var(--fs-700);
+            font-size: var(--fs-800);
         }
         @media (min-width:1200px) {
-            font-size: var(--fs-800);
+            font-size: var(--fs-900);
         }
         text-align: center;
         font-weight: var(--fw-medium);
@@ -47,5 +47,8 @@
         text-align: center;
         font-weight: var(--fw-medium);
         font-size: var(--fs-400);
+        @media (min-width:992px) {
+            font-size: var(--fs-500);
+        }
 	}
 }
