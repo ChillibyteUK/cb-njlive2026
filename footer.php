@@ -23,11 +23,11 @@ defined( 'ABSPATH' ) || exit;
 			<div class="col-md-7 order-md-2">
 				<div class="footer__anim text-center">
 					<video autoplay loop muted playsinline style="width: 100%; height: 100%;">
-						<source src="<?= get_stylesheet_directory_uri(); ?>/anim/NJ_SpeechBubble_833x833.webm" type="video/webm">
+						<source src="<?= get_stylesheet_directory_uri(); ?>/anim/NJLive_Footer_SpeechBubble_1200x940_B_Loop.webm" type="video/webm">
 					</video>
 				</div>
 			</div>
-			<div class="col-md-5 order-md-1 footer__contact my-auto">
+			<div class="col-md-5 order-md-1 footer__contact d-flex flex-column justify-content-end">
 				<div><?= do_shortcode( '[contact_email]' ); ?></div>
 				<div><?= do_shortcode( '[contact_phone]' ); ?></div>
 			</div>

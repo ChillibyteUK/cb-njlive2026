@@ -1,6 +1,6 @@
 .home-hero {
     position: relative;
-    // min-height: calc(100svh - var(--h-top));
+    margin-top: calc(var(--h-top) * -1);
     overflow: hidden;
     isolation: isolate;
 
@@ -20,6 +20,9 @@
         margin-inline: auto;
     }
 
+    &__words {
+        margin-top: 170px;
+    }
     h1 {
         font-size: var(--fs-900);
         color: var(--col-slate);
