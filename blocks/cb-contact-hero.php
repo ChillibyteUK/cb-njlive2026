@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="col-lg-6 d-flex flex-column justify-content-start align-items-center gap-2">
 				<video autoplay muted playsinline style="width: 100%; height: 100%;">
-					<source src="<?= get_stylesheet_directory_uri(); ?>/anim/NJ_Icons_906x906.webm" type="video/webm">
+					<source src="<?= get_stylesheet_directory_uri(); ?>/anim/NJLive_Contact_Icons_1405x1080_C_ExpandIn.webm" type="video/webm">
 				</video>
 				</div>
 			</div>
